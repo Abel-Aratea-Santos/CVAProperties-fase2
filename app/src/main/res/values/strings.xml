@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CVAProperties</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_buscar__mapa">Buscar_Mapa</string>
+    <string name="title_activity_buscar__propiedad">Buscar_Propiedad</string>
+    <string name="title_activity_formulario__registro__cv">Formulario_Registro_CVA</string>
+    <string name="title_activity_home__cv">Home_CVA</string>
+    <string name="title_activity_properties_details">Properties_details</string>
+    <string name="title_activity_publicar_anuncio__cv">Publicar_anuncio_CVA</string>
+    <string name="title_activity_registrar__cv">Registrar_CVA</string>
+</resources>
