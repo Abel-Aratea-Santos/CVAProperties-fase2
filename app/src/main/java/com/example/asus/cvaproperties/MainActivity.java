@@ -102,6 +102,12 @@ public class MainActivity extends AppCompatActivity
                 finish();
                 return true;
 
+            case R.id.map:
+                i = new Intent(MainActivity.this, Buscar_Mapa.class);
+                startActivity(i);
+                finish();
+                return true;
+
         }
 
 
