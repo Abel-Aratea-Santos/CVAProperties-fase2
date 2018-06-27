@@ -13,4 +13,5 @@
     <string name="title_activity_properties_details">Properties_details</string>
     <string name="title_activity_publicar_anuncio__cv">Publicar_anuncio_CVA</string>
     <string name="title_activity_registrar__cv">Registrar_CVA</string>
+    <string name="Error_Login">Error al inicar sesion de google play, intente de nuevo mas tarde</string>
 </resources>

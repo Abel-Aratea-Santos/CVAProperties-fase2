@@ -13,9 +13,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    String name, email,avatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Intent intent = getIntent();
+
+        //no rescata los datos de registro 
+
+        //avatar = intent.getExtras().getString("avatar");
+        //name = intent.getExtras().getString("nombre");
+        //email = intent.getExtras().getString("email");
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +54,17 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+       // loadComponent();
+    }
+
+    private void loadComponent() {
+        ImageView foto = (ImageView) this.findViewById(R.id.avatar);
+        TextView nombre = (TextView)this.findViewById(R.id.nombre);
+        TextView Email = (TextView)this.findViewById(R.id.email);
+        nombre.setText(name);
+        Email.setText(email);
+
     }
 
     @Override
@@ -102,7 +126,7 @@ public class MainActivity extends AppCompatActivity
                 finish();
                 return true;
 
-            case R.id.map:
+            case R.id.mapa:
                 i = new Intent(MainActivity.this, Buscar_Mapa.class);
                 startActivity(i);
                 finish();
