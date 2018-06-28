@@ -66,5 +66,5 @@
             android:name=".Buscar_Mapa"
             android:label="@string/title_activity_buscar__mapa"></activity>
     </application>
-
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
 </manifest>

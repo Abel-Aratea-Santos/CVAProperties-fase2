@@ -55,13 +55,23 @@ public class CustomAdapter extends BaseAdapter {
         }
 
         TextView precio_l = (TextView)convertView.findViewById(R.id.precio_l);
+        TextView nombre_casa_l = (TextView)convertView.findViewById(R.id.nombre_casa_l);
+        TextView ubicacion_l = (TextView)convertView.findViewById(R.id.ubicacion_l);
+        TextView superficie_l = (TextView)convertView.findViewById(R.id.superficie_l);
+        TextView num_habitaciones_l = (TextView)convertView.findViewById(R.id.num_habitaciones_l);
+        TextView num_plantas_l = (TextView)convertView.findViewById(R.id.num_plantas_l);
 
-        precio_l.setText(this.LIST.get(position).getPrecio());
+        precio_l.setText(this.LIST.get(position).getPrecio_i());
+        nombre_casa_l.setText(this.LIST.get(position).getNombre_casa_i());
+        ubicacion_l.setText(this.LIST.get(position).getUbicacion_i());
+        superficie_l.setText(this.LIST.get(position).getSuperficie_i());
+        num_habitaciones_l.setText(this.LIST.get(position).getNum_habitaciones_i());
+        num_plantas_l.setText(this.LIST.get(position).getNum_plantas_i());
 
         ImageView img = (ImageView)convertView.findViewById(R.id.img_inmueble_l);
 
         try {
-            URL url = new URL(this.LIST.get(position).getImg_casa());
+            URL url = new URL(this.LIST.get(position).getImg_casa_i());
             InputStream stream =url.openConnection().getInputStream();
             Bitmap imageBitmap = BitmapFactory.decodeStream(stream);
             img.setImageBitmap(imageBitmap);
