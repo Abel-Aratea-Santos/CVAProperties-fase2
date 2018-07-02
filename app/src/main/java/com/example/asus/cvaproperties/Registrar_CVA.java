@@ -78,12 +78,13 @@ public class Registrar_CVA extends AppCompatActivity implements GoogleApiClient.
         if(requestCode == GOOGLE_CODE){
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if(result.isSuccess()){
-                Toast.makeText(this,"ok",Toast.LENGTH_SHORT).show();
+
                 Intent loginr = new Intent(this, MainActivity.class);
                // loginr.putExtra("avatar",result.getSignInAccount().getPhotoUrl());
                 loginr.putExtra("email",result.getSignInAccount().getEmail());
                 loginr.putExtra("nombre",result.getSignInAccount().getDisplayName());
                 startActivity(loginr);
+                Toast.makeText(this,"Successfull!!",Toast.LENGTH_SHORT).show();
             }else{
                 Toast.makeText(this, R.string.Error_Login,Toast.LENGTH_SHORT).show();
             }

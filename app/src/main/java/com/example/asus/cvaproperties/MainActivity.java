@@ -1,5 +1,6 @@
 package com.example.asus.cvaproperties;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,17 +14,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private String name, email,avatar;
+    private Context root;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        root = this;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //no rescata l/os datos de registro
+
+       //avatar = this.getIntent().getExtras().getString("avatar");
+       //name = this.getIntent().getExtras().getString("nombre");
+       //email = this.getIntent().getExtras().getString("email");
+
+        ImageView foto = (ImageView) this.findViewById(R.id.avatar);
+        TextView nombre = (TextView)this.findViewById(R.id.nombre);
+        TextView Email = (TextView)this.findViewById(R.id.email);
+        nombre.setText(name);
+        Email.setText(email);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -42,8 +62,14 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+     //  loadComponent();
     }
 
+    private void loadComponent() {
+
+
+    }
 
     @Override
     public void onBackPressed() {
@@ -104,7 +130,7 @@ public class MainActivity extends AppCompatActivity
                 //finish();
                 return true;
 
-            case R.id.map:
+            case R.id.mapa:
                 i = new Intent(MainActivity.this, Buscar_Mapa.class);
                 startActivity(i);
                 //finish();
@@ -117,6 +143,4 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
 }
