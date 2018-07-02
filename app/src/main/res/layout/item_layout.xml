@@ -8,10 +8,11 @@
 
     <ImageView
         android:id="@+id/img_inmueble_l"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="264dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
+        android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

@@ -1,6 +1,7 @@
 package com.example.asus.cvaproperties;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
@@ -44,20 +45,29 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        LIST = (ListView) this.findViewById(R.id.ListViewCasas);
+
         loadInitialRestData();
         loadComponents();
 
 
-    }
+        }
 
     private void loadInitialRestData() {
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://192.168.6.142:5000/api/v1.0/inmueble",new  JsonHttpResponseHandler(){
+     //  String url ="http://192.168.6.142:5000/api/v1.0/inmueble";
+        client.get("http://192.168.1.11:5000/api/v1.0/datos_anuncio",new  JsonHttpResponseHandler(){
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
-                    JSONArray list = (JSONArray) response.get("inmueble");
+                    System.out.println("****************************** entro al object array " + response);
+                    /*JSONArray list = response;
                     for(int i=0; 1< list.length(); i++){
                         JSONObject itemJsom = list.getJSONObject(i);
 
@@ -70,34 +80,53 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
 
                         ItemList item = new ItemList (precio, nombre, ubicacion, superficie, num_habitaciones, num_plantas,null,null);
                         LISTINFO.add(item);
+                    }*/
+                    for(int i=0; i< response.length(); i++){
+                        //System.out.println("****************************** el precio es => " + response.getJSONObject(i).getString("precio"));
+                        JSONObject itemJsom = response.getJSONObject(i);
+                        String idimdb = itemJsom.getString("_id");
+                        String precio = itemJsom.getString("precio_a");
+                        String nombre = itemJsom.getString("frase_destacada_a");
+                        String ubicacion = itemJsom.getString("ubicacion_a");
+                        String superficie = itemJsom.getString("superficie_a");
+                        String num_habitaciones = itemJsom.getString("num_banos_a");
+                        String num_plantas = itemJsom.getString("num_plantas_a");
+                        System.out.println("****************************** la ubicacion es => " + ubicacion);
+                        ItemList item = new ItemList (idimdb,precio, nombre, ubicacion, superficie, num_habitaciones, num_plantas);
+                        LISTINFO.add(item);
                     }
+
                     ADAPTER = new CustomAdapter(root,LISTINFO);
+
+
+                    //eventos
+
+                    LIST.setAdapter(ADAPTER);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            }
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-
             }
 
         });
     }
 
     private void loadComponents() {
+        System.out.println("------------- loadComponents");
         LIST = (ListView) this.findViewById(R.id.ListViewCasas);
 
-        //eventos
-
-
+        //acceso a propiedades de inmuebles
+        LIST.setOnItemClickListener(this);
 
         LIST.setAdapter(ADAPTER);
+
 
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+   String idimdb = this.LISTINFO.get(position).getIdimdb();
+        Intent inmu_detalles = new Intent(this,Properties_details.class);
+        inmu_detalles.putExtra("id", idimdb);
+        this.startActivity(inmu_detalles);
     }
 }

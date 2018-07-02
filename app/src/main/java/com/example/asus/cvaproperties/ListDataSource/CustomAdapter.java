@@ -26,7 +26,9 @@ public class CustomAdapter extends BaseAdapter {
     private Context CONTEXT;
     private ArrayList<ItemList> LIST;
 
-    public CustomAdapter(Context context, ArrayList<ItemList> list) {
+    public CustomAdapter(Context context, ArrayList<ItemList> list)
+    {
+        System.out.println("----------------- entro aqui tamanio lista => " + list.size());
         this.CONTEXT = context;
         this.LIST = list;
     }
@@ -47,7 +49,16 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
+        System.out.println("------------ dentro del getView id => " + LIST.get(position).getIdimdb());
+        System.out.println("------------ dentro del getView precio => " + LIST.get(position).getPrecio_i());
+        System.out.println("------------ dentro del getView nombre => " + LIST.get(position).getNombre_casa_i());
+        System.out.println("------------ dentro del getView ubicacion => " + LIST.get(position).getUbicacion_i());
+        System.out.println("------------ dentro del getView superficie => " + LIST.get(position).getSuperficie_i());
+        System.out.println("------------ dentro del getView habitaciones => " + LIST.get(position).getNum_habitaciones_i());
+        System.out.println("------------ dentro del getView plantas => " + LIST.get(position).getNum_plantas_i());
+
         if (convertView == null) {
             LayoutInflater inflate = (LayoutInflater) this.CONTEXT.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflate.inflate(R.layout.item_layout,null);
@@ -67,7 +78,7 @@ public class CustomAdapter extends BaseAdapter {
         superficie_l.setText(this.LIST.get(position).getSuperficie_i());
         num_habitaciones_l.setText(this.LIST.get(position).getNum_habitaciones_i());
         num_plantas_l.setText(this.LIST.get(position).getNum_plantas_i());
-
+/*
         ImageView img = (ImageView)convertView.findViewById(R.id.img_inmueble_l);
 
         try {
@@ -76,12 +87,13 @@ public class CustomAdapter extends BaseAdapter {
             Bitmap imageBitmap = BitmapFactory.decodeStream(stream);
             img.setImageBitmap(imageBitmap);
 
-        } catch (MalformedURLException e) {
+        }
+        catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+*/
         return convertView;
     }
 }

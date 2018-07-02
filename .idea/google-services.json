@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "414148455397",
+    "firebase_url": "https://apiimdb-6efd3.firebaseio.com",
+    "project_id": "apiimdb-6efd3",
+    "storage_bucket": "apiimdb-6efd3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414148455397:android:370b080e186286e8",
+        "android_client_info": {
+          "package_name": "com.example.asus.cvaproperties"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414148455397-gl70m2nssee8c14hlg8u70934namicka.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.asus.cvaproperties",
+            "certificate_hash": "9d3b9d2f39da22cadb324ef2cbb5c886ed31f1e1"
+          }
+        },
+        {
+          "client_id": "414148455397-02vi8pjo42lgv31ikl93mu1o2jj1hlr3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdN99S-UoEpnAw4HwdvE24x0Qk_rhw41c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "414148455397-02vi8pjo42lgv31ikl93mu1o2jj1hlr3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

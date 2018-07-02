@@ -27,7 +27,7 @@
             android:layout_height="500dp">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/img_pd"
                 android:layout_width="match_parent"
                 android:layout_height="310dp"
                 android:layout_marginBottom="8dp"
@@ -39,13 +39,14 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
+                android:id="@+id/precio_pd"
                 android:layout_width="131dp"
                 android:layout_height="51dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintBottom_toBottomOf="@+id/img_pd"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.033"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,82 +54,67 @@
                 app:layout_constraintVertical_bias="1.0" />
 
             <TextView
-                android:id="@+id/textView26"
+                android:id="@+id/superficie_pd"
                 android:layout_width="60dp"
                 android:layout_height="20dp"
-                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.025"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2"
-                app:layout_constraintVertical_bias="0.125" />
+                app:layout_constraintTop_toBottomOf="@+id/ubicacion_pd" />
 
             <TextView
-                android:id="@+id/textView27"
+                android:id="@+id/hab_pd"
                 android:layout_width="60dp"
                 android:layout_height="20dp"
-                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.073"
-                app:layout_constraintStart_toEndOf="@+id/textView26"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2"
-                app:layout_constraintVertical_bias="0.126" />
+                app:layout_constraintHorizontal_bias="0.056"
+                app:layout_constraintStart_toEndOf="@+id/superficie_pd"
+                app:layout_constraintTop_toBottomOf="@+id/ubicacion_pd" />
 
             <TextView
-                android:id="@+id/textView28"
+                android:id="@+id/frase_pd"
                 android:layout_width="132dp"
                 android:layout_height="24dp"
-                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="196dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.16"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2"
-                app:layout_constraintVertical_bias="0.012" />
+                app:layout_constraintTop_toBottomOf="@+id/img_pd" />
 
             <TextView
-                android:id="@+id/textView29"
+                android:id="@+id/ubicacion_pd"
                 android:layout_width="200dp"
                 android:layout_height="20dp"
-                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView26"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.047"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView28"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/frase_pd" />
 
             <TextView
-                android:id="@+id/textView30"
+                android:id="@+id/plantas_pd"
                 android:layout_width="60dp"
                 android:layout_height="20dp"
-                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.577"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView29"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintHorizontal_bias="0.099"
+                app:layout_constraintStart_toEndOf="@+id/hab_pd"
+                app:layout_constraintTop_toBottomOf="@+id/ubicacion_pd" />
 
             <TextView
-                android:id="@+id/textView32"
+                android:id="@+id/descripcion_pd"
                 android:layout_width="350dp"
                 android:layout_height="196dp"
                 android:layout_marginEnd="8dp"
@@ -147,17 +133,16 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Descripcion"
-                app:layout_constraintBottom_toTopOf="@+id/textView32"
+                app:layout_constraintBottom_toTopOf="@+id/descripcion_pd"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.029"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView26"
-                app:layout_constraintVertical_bias="0.6" />
+                app:layout_constraintTop_toBottomOf="@+id/superficie_pd" />
 
             <TextView
                 android:id="@+id/textView34"
                 android:layout_width="100dp"
-                android:layout_height="15dp"
+                android:layout_height="21dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
@@ -165,11 +150,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.029"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView32" />
+                app:layout_constraintTop_toBottomOf="@+id/descripcion_pd" />
 
 
             <TextView
-                android:id="@+id/textView35"
+                android:id="@+id/calefaccion_pd"
                 android:layout_width="100dp"
                 android:layout_height="15dp"
                 android:layout_marginEnd="8dp"
@@ -182,7 +167,7 @@
 
 
             <TextView
-                android:id="@+id/textView36"
+                android:id="@+id/ascensor_pd"
                 android:layout_width="100dp"
                 android:layout_height="15dp"
                 android:layout_marginEnd="8dp"
@@ -191,11 +176,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.029"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView35" />
+                app:layout_constraintTop_toBottomOf="@+id/calefaccion_pd" />
 
 
             <TextView
-                android:id="@+id/textView37"
+                android:id="@+id/banos_pd"
                 android:layout_width="100dp"
                 android:layout_height="15dp"
                 android:layout_marginEnd="8dp"
@@ -204,11 +189,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.029"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView36" />
+                app:layout_constraintTop_toBottomOf="@+id/ascensor_pd" />
 
 
             <TextView
-                android:id="@+id/textView38"
+                android:id="@+id/aire_pd"
                 android:layout_width="100dp"
                 android:layout_height="15dp"
                 android:layout_marginEnd="8dp"
@@ -217,10 +202,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.029"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView37" />
+                app:layout_constraintTop_toBottomOf="@+id/banos_pd" />
 
             <TextView
-                android:id="@+id/textView39"
+                android:id="@+id/operacion_pd"
                 android:layout_width="100dp"
                 android:layout_height="15dp"
                 android:layout_marginEnd="8dp"
@@ -229,11 +214,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.029"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView38" />
+                app:layout_constraintTop_toBottomOf="@+id/aire_pd" />
 
 
             <TextView
-                android:id="@+id/textView40"
+                android:id="@+id/tipo_pd"
                 android:layout_width="100dp"
                 android:layout_height="15dp"
                 android:layout_marginEnd="8dp"
@@ -242,11 +227,58 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.032"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView39" />
+                app:layout_constraintTop_toBottomOf="@+id/operacion_pd" />
 
             <TextView
                 android:id="@+id/textView31"
-                android:layout_width="110dp"
+                android:layout_width="148dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:text="Contactar al Dueño"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.034"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tipo_pd" />
+
+            <TextView
+                android:id="@+id/nombre_pd"
+                android:layout_width="100dp"
+                android:layout_height="15dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView31" />
+            <TextView
+                android:id="@+id/email_pd"
+                android:layout_width="100dp"
+                android:layout_height="15dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nombre_pd" />
+            <TextView
+                android:id="@+id/cel_pd"
+                android:layout_width="100dp"
+                android:layout_height="15dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_pd" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="148dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
@@ -255,7 +287,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.034"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView40" />
+                app:layout_constraintTop_toBottomOf="@+id/cel_pd" />
 
         </android.support.constraint.ConstraintLayout>
 
