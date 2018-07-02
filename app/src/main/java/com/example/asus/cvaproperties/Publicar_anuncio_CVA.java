@@ -1,5 +1,6 @@
 package com.example.asus.cvaproperties;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -7,16 +8,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
-public class Publicar_anuncio_CVA extends AppCompatActivity {
+public class Publicar_anuncio_CVA extends AppCompatActivity implements View.OnClickListener {
 
+private Context root;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        root =this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publicar_anuncio__cv);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        LoadComponents();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -46,4 +54,14 @@ public class Publicar_anuncio_CVA extends AppCompatActivity {
 
     }
 
+    private void LoadComponents() {
+        Button btn = (Button)this.findViewById(R.id.registrar_x);
+        btn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        
+
+    }
 }

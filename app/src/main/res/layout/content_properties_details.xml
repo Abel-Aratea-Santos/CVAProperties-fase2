@@ -79,20 +79,20 @@
 
             <TextView
                 android:id="@+id/frase_pd"
-                android:layout_width="132dp"
+                android:layout_width="192dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="196dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.16"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/img_pd" />
 
             <TextView
                 android:id="@+id/ubicacion_pd"
-                android:layout_width="200dp"
-                android:layout_height="20dp"
+                android:layout_width="305dp"
+                android:layout_height="31dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
@@ -155,8 +155,8 @@
 
             <TextView
                 android:id="@+id/calefaccion_pd"
-                android:layout_width="100dp"
-                android:layout_height="15dp"
+                android:layout_width="170dp"
+                android:layout_height="24dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
@@ -168,8 +168,8 @@
 
             <TextView
                 android:id="@+id/ascensor_pd"
-                android:layout_width="100dp"
-                android:layout_height="15dp"
+                android:layout_width="165dp"
+                android:layout_height="23dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
@@ -181,8 +181,8 @@
 
             <TextView
                 android:id="@+id/banos_pd"
-                android:layout_width="100dp"
-                android:layout_height="15dp"
+                android:layout_width="168dp"
+                android:layout_height="29dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"

@@ -10,9 +10,11 @@ public class ItemList {
     private String num_habitaciones_i;
     private String num_plantas_i;
     private String idimdb;
+    private String tipo_inmu_i;
+    private String operacion_i;
 
 
-    public ItemList(String img_casa_i,String precio_i,String nombre_casa_i, String ubicacion_i, String superficie_i, String num_habitaciones_i, String num_plantas_i, String idimdb){
+    public ItemList(String img_casa_i,String precio_i,String nombre_casa_i, String ubicacion_i, String superficie_i, String num_habitaciones_i, String num_plantas_i, String idimdb, String tipo_inmu_i,String operacion_i){
         this.img_casa_i=img_casa_i;
         this.precio_i = precio_i;
         this.nombre_casa_i = nombre_casa_i;
@@ -21,6 +23,12 @@ public class ItemList {
         this.num_habitaciones_i = num_habitaciones_i;
         this.num_plantas_i = num_plantas_i;
         this.idimdb = idimdb;
+        this.tipo_inmu_i = tipo_inmu_i;
+        this.operacion_i = operacion_i;
+
+
+
+
     }
 
     public ItemList(String idimdb, String precio_i,String nombre_casa_i, String ubicacion_i, String superficie_i, String num_habitaciones_i, String num_plantas_i){
@@ -73,5 +81,13 @@ public class ItemList {
     public String getIdimdb()
     {
         return this.idimdb;
+    }
+
+    public String getTipo_inmu_i() {
+        return this.tipo_inmu_i;
+    }
+
+    public String getOperacion_i() {
+        return this.operacion_i;
     }
 }

@@ -85,29 +85,29 @@ public class MainActivity extends AppCompatActivity
             case R.id.home:
                 i = new Intent(MainActivity.this, Home_CVA.class);
                 startActivity(i);
-                finish();
+                //finish();
                 return true;
             case R.id.registro:
                 i = new Intent(MainActivity.this, Registrar_CVA.class);
                 startActivity(i);
-                finish();
+                //finish();
                 return true;
             case R.id.publicar_anuncio:
                 i = new Intent(MainActivity.this, Publicar_anuncio_CVA.class);
                 startActivity(i);
-                finish();
+                //finish();
                 return true;
 
             case R.id.propiedad:
                 i = new Intent(MainActivity.this, Buscar_Propiedad.class);
                 startActivity(i);
-                finish();
+                //finish();
                 return true;
 
             case R.id.map:
                 i = new Intent(MainActivity.this, Buscar_Mapa.class);
                 startActivity(i);
-                finish();
+                //finish();
                 return true;
 
         }
