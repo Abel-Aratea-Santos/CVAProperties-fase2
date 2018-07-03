@@ -36,6 +36,7 @@ private Context root;
         });
 
 
+
         Spinner spinner = (Spinner) findViewById(R.id.Spinner_tipo_inmueble_B);
         String[] letra = { "Departamento","Casa","Terreno/Lote","Oficina","Bodega","Otros"};
         spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, letra));

@@ -15,4 +15,5 @@
     <string name="title_activity_registrar__cv">Registrar_CVA</string>
     <string name="Error_Login">Error al inicar sesion de google play, intente de nuevo mas tarde</string>
     <string name="title_activity_result_busqueda">Result_busqueda</string>
+    <string name="title_activity_carga__mapa">Carga_Mapa</string>
 </resources>
