@@ -24,7 +24,12 @@ import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.TileOverlay;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -53,6 +58,7 @@ public class Buscar_Mapa extends FragmentActivity implements OnMapReadyCallback,
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         listMarkers = new ArrayList<Marker>();
+        loadData();
 
         enviar = this.findViewById(R.id.enviar);
         enviar.setOnClickListener(this);
@@ -65,6 +71,7 @@ public class Buscar_Mapa extends FragmentActivity implements OnMapReadyCallback,
         poligono = this.findViewById(R.id.Poligono);
         poligono.setOnClickListener(this);
     }
+
 
 
     /**
@@ -135,10 +142,11 @@ public class Buscar_Mapa extends FragmentActivity implements OnMapReadyCallback,
                 String send="";
                 for(int i=0;i < listMarkers.size();i++ ){
                     LatLng coor = listMarkers.get(i).getPosition();
-                    send +="["+coor.latitude+","+coor.longitude+"]";
+                    send +=""+coor.latitude+","+coor.longitude+"]";
                 }
                 params.put("coor",send);
                 AsyncHttpClient client = new AsyncHttpClient();
+                //Falta URL del Servicio:----------------------
                 client.post("", params, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -168,6 +176,41 @@ public class Buscar_Mapa extends FragmentActivity implements OnMapReadyCallback,
 
         }
     }
+    private void loadData() {
+        AsyncHttpClient client = new AsyncHttpClient();
+        //Falta URL del Servicio:----------------------
+        client.get("", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                // If the response is JSONObject instead of expected JSONArray
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
+                // Pull out the first event on the public timeline
+                JSONArray aux = timeline;
+                ArrayList<LatLng> list_coor = new ArrayList<LatLng>();
+                for(int i=0;i < aux.length();i++){
+                    try {
+                        JSONObject obj = aux.getJSONObject(i);
+                        double lat = Double.parseDouble(obj.get("lat").toString());
+                        double lng = Double.parseDouble(obj.get("lng").toString());
+                        list_coor.add(new LatLng(lat,lng));
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                for (int i=0;i < list_coor.size();i++){
+                    setMarker(list_coor.get(i));
+                }
+
+            }
+        });
+    }
+    private void setMarker(LatLng latLng){
+        Marker m = mMap.addMarker(new MarkerOptions().position(latLng).title(":D"));
+    }
 
     @Override
     public void onMapClick(LatLng latLng) {
@@ -184,8 +227,8 @@ public class Buscar_Mapa extends FragmentActivity implements OnMapReadyCallback,
                     .fillColor(Color.argb(50,50,50,50));
             miPoligono = mMap.addPolygon(polOptions);
             points.add(latLng);
-        }else{/*
-            points.add(latLng);
+        }else{
+           /* points.add(latLng);
             miPoligono.setPoints(points);*/
         }
     }
