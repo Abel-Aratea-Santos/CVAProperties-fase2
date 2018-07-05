@@ -81,8 +81,11 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
                         ItemList item = new ItemList (precio, nombre, ubicacion, superficie, num_habitaciones, num_plantas,null,null);
                         LISTINFO.add(item);
                     }*/
+                    String img_inmu [] = new String[10];
+                    int n = 0;
                     for(int i=0; i< response.length(); i++){
                         //System.out.println("****************************** el precio es => " + response.getJSONObject(i).getString("precio"));
+                        //String img_inmueble = itemJsom.getString("gallery");
                         JSONObject itemJsom = response.getJSONObject(i);
                         String idimdb = itemJsom.getString("_id");
                         String precio = itemJsom.getString("precio_a");
@@ -91,10 +94,11 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
                         String superficie = itemJsom.getString("superficie_a");
                         String num_habitaciones = itemJsom.getString("num_banos_a");
                         String num_plantas = itemJsom.getString("num_plantas_a");
-                        //String img_inmueble = itemJsom.getString("gallery");
+                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx" + itemJsom.getJSONArray("gallery " ));
                         System.out.println("****************************** la ubicacion es => " + ubicacion);
                         ItemList item = new ItemList (/*img_inmueble*/idimdb,precio, nombre, ubicacion, superficie, num_habitaciones, num_plantas);
                         LISTINFO.add(item);
+
                     }
 
                     ADAPTER = new CustomAdapter(root,LISTINFO);
