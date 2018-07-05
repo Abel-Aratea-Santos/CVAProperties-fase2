@@ -91,8 +91,9 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
                         String superficie = itemJsom.getString("superficie_a");
                         String num_habitaciones = itemJsom.getString("num_banos_a");
                         String num_plantas = itemJsom.getString("num_plantas_a");
+                        //String img_inmueble = itemJsom.getString("gallery");
                         System.out.println("****************************** la ubicacion es => " + ubicacion);
-                        ItemList item = new ItemList (idimdb,precio, nombre, ubicacion, superficie, num_habitaciones, num_plantas);
+                        ItemList item = new ItemList (/*img_inmueble*/idimdb,precio, nombre, ubicacion, superficie, num_habitaciones, num_plantas);
                         LISTINFO.add(item);
                     }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Registrar_CVA"
     android:background="@drawable/fondo_login_opt"
-    tools:showIn="@layout/activity_registrar__cv">
+    tools:showIn="@layout/activity_registrar__cv"
+    android:orientation="vertical">
 
 
 
@@ -29,6 +30,7 @@
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/avatar"/>
             <EditText
+                android:id="@+id/email_r"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -45,6 +47,7 @@
                 android:layout_height="1dp"
                 android:background="#263238"/>
             <EditText
+                android:id="@+id/pasword_r"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -69,15 +72,17 @@
                 android:textColor="#263238"
                 android:text="Remenber me"
                 android:padding="8dp"/>
+
             <Button
+                android:id="@+id/btn_enviar_datos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#263238"
-                android:text="Log in"
-                android:textColor="#E3F2F3"
-                android:textAllCaps="false"
-                android:padding="16dp"
                 android:clickable="true"
+                android:padding="16dp"
+                android:text="Log in"
+                android:textAllCaps="false"
+                android:textColor="#E3F2F3"
                 />
             <Button
                 android:id="@+id/registrarse_r"
@@ -92,14 +97,9 @@
                 android:layout_marginTop="16dp"
 
                 />
-            <com.google.android.gms.common.SignInButton
-                android:id="@+id/googleButtom"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="16dp"></com.google.android.gms.common.SignInButton>
 
         </LinearLayout>
 
     </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

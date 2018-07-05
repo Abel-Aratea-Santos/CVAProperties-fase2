@@ -78,7 +78,7 @@ public class CustomAdapter extends BaseAdapter {
         superficie_l.setText(this.LIST.get(position).getSuperficie_i());
         num_habitaciones_l.setText(this.LIST.get(position).getNum_habitaciones_i());
         num_plantas_l.setText(this.LIST.get(position).getNum_plantas_i());
-/*
+
         ImageView img = (ImageView)convertView.findViewById(R.id.img_inmueble_l);
 
         try {
@@ -93,7 +93,7 @@ public class CustomAdapter extends BaseAdapter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-*/
+
         return convertView;
     }
 }

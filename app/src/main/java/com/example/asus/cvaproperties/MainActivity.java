@@ -25,6 +25,18 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //VERIFICO SI SE LEGEO
+        Bundle datos = this.getIntent().getExtras();
+        //int aux_login = datos.getInt("logear", 0);
+        if(datos == null)
+        {
+            Intent intencion = new Intent(this, Registrar_CVA.class);
+            startActivity(intencion);
+            finish();
+
+        }
+        //FIN DE VERIFICO
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
