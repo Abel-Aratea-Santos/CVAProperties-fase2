@@ -1,6 +1,7 @@
 package com.example.asus.cvaproperties.Data_Propiedad_details;
 
 public class PropertiesDetails {
+    private String img_a;
     private String nombre_a;
     private String email_a;
     private String telefono_a;
@@ -19,6 +20,7 @@ public class PropertiesDetails {
     private String observaciones_a;
 
     public PropertiesDetails(
+            String img_a,
             String nombre_a,
             String email_a,
             String telefono_a,
@@ -36,6 +38,7 @@ public class PropertiesDetails {
             String ubicacion_a,
             String observaciones_a
     ){
+        this.img_a = img_a;
         this.nombre_a = nombre_a;
         this.email_a = email_a;
         this.telefono_a = telefono_a;
@@ -55,6 +58,10 @@ public class PropertiesDetails {
 
 
 
+    }
+
+    public String getImg_a() {
+        return this.img_a;
     }
 
     public String getNombre_a() {

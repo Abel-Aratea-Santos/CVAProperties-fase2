@@ -9,12 +9,16 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.asus.cvaproperties.DATA.DataApp;
 import com.example.asus.cvaproperties.Data_Propiedad_details.PropertiesDetails;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -72,8 +76,12 @@ public class Properties_details extends AppCompatActivity {
                             String frase_destacada_a = response.getString("frase_destacada_a");
                             String ubicacion_a = response.getString("ubicacion_a");
                             String observaciones_a = response.getString("observaciones_a");
-
-                            DATA = new PropertiesDetails(nombre_a,email_a,telefono_a,operacion_a,tipo_inmueble_a,precio_a,superficie_a,num_hab_a,num_banos_a,num_plantas_a,ascensor_a,aire_a,calefaccion_a,frase_destacada_a,ubicacion_a,observaciones_a);
+                    JSONArray listGalery = response.getJSONArray("gallery");
+                    ArrayList<String> urlList = new ArrayList<String>();
+                    for (int j=0; j < listGalery.length(); j++){
+                        urlList.add(DataApp.HOST + listGalery.getString(j));
+                    }
+                            DATA = new PropertiesDetails(urlList.get(0),nombre_a,email_a,telefono_a,operacion_a,tipo_inmueble_a,precio_a,superficie_a,num_hab_a,num_banos_a,num_plantas_a,ascensor_a,aire_a,calefaccion_a,frase_destacada_a,ubicacion_a,observaciones_a);
                             root.setInformation();
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -83,6 +91,7 @@ public class Properties_details extends AppCompatActivity {
         });
     }
     private void setInformation(){
+
         this.nombre_pd.setText(DATA.getNombre_a());
         this.email_pd.setText(DATA.getEmail_a());
         this.cel_pd.setText(DATA.getTelefono_a());

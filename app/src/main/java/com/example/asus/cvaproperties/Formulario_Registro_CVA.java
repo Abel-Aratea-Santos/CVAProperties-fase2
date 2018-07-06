@@ -42,8 +42,6 @@ public class Formulario_Registro_CVA extends AppCompatActivity implements View.O
                         .setAction("Action", null).show();
 
 
-
-
             }
         });
     }

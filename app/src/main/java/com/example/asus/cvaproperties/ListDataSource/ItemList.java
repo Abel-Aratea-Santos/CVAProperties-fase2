@@ -31,8 +31,8 @@ public class ItemList {
 
     }
 
-    public ItemList(/*String img_casa_i,*/ String idimdb, String precio_i,String nombre_casa_i, String ubicacion_i, String superficie_i, String num_habitaciones_i, String num_plantas_i){
-        //this.img_casa_i=img_casa_i;
+    public ItemList(String img_casa_i, String idimdb, String precio_i,String nombre_casa_i, String ubicacion_i, String superficie_i, String num_habitaciones_i, String num_plantas_i){
+        this.img_casa_i=img_casa_i;
         this.idimdb = idimdb;
         this.precio_i = precio_i;
         this.nombre_casa_i = nombre_casa_i;

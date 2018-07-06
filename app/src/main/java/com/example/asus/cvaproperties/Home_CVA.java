@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.asus.cvaproperties.DATA.DataApp;
 import com.example.asus.cvaproperties.ListDataSource.CustomAdapter;
 import com.example.asus.cvaproperties.ListDataSource.ItemList;
 import com.loopj.android.http.AsyncHttpClient;
@@ -56,7 +57,7 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
     private void loadInitialRestData() {
         AsyncHttpClient client = new AsyncHttpClient();
      //  String url ="http://192.168.6.142:5000/api/v1.0/inmueble";
-        client.get("http://192.168.100.5:5000/api/v1.0/datos_anuncio",new  JsonHttpResponseHandler(){
+        client.get("http://192.168.1.11:5000/api/v1.0/datos_anuncio",new  JsonHttpResponseHandler(){
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -94,9 +95,13 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
                         String superficie = itemJsom.getString("superficie_a");
                         String num_habitaciones = itemJsom.getString("num_banos_a");
                         String num_plantas = itemJsom.getString("num_plantas_a");
-                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx" + itemJsom.getJSONArray("gallery " ));
-                        System.out.println("****************************** la ubicacion es => " + ubicacion);
-                        ItemList item = new ItemList (/*img_inmueble*/idimdb,precio, nombre, ubicacion, superficie, num_habitaciones, num_plantas);
+                        JSONArray listGalery = itemJsom.getJSONArray("gallery");
+                        ArrayList<String> urlList = new ArrayList<String>();
+                        for (int j=0; j < listGalery.length(); j++){
+                        urlList.add(DataApp.HOST + listGalery.getString(j));
+                        }
+                                           //  System.out.println("****************************** la ubicacion es => " + ubicacion);
+                        ItemList item = new ItemList (urlList.get(0),idimdb,precio, nombre, ubicacion, superficie, num_habitaciones, num_plantas);
                         LISTINFO.add(item);
 
                     }

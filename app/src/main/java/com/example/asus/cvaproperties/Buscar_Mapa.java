@@ -146,7 +146,7 @@ public class Buscar_Mapa extends FragmentActivity implements OnMapReadyCallback,
                 }
                 params.put("coor",send);
                 AsyncHttpClient client = new AsyncHttpClient();
-                //Falta URL del Servicio:----------------------
+
                 client.post("", params, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
