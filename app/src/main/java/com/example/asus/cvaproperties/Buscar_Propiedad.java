@@ -3,6 +3,7 @@ package com.example.asus.cvaproperties;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,22 +20,41 @@ import com.example.asus.cvaproperties.ListDataSource.ItemList;
 
 import java.util.ArrayList;
 
-public class Buscar_Propiedad extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class Buscar_Propiedad extends AppCompatActivity  {
     private ListView LIST;
     private ArrayList<ItemList> LISTINFO;
     private CustomAdapter ADAPTER;
     private Context root;
+    public String text;
+    public String text1;
+
+    public String s_tipop_aux ="",s_tipon_aux = "";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar__propiedad);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Button btn = (Button) findViewById(R.id.buscar_p);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                System.out.println("....................... click en registrarse");
+                Intent intent = new Intent (v.getContext(), Home_CVA.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -47,36 +67,39 @@ public class Buscar_Propiedad extends AppCompatActivity implements AdapterView.O
         });
 
 
-        Spinner spinner = (Spinner) findViewById(R.id.tipos_propiedades);
-        String[] letra = { "Departamento","Casa","Terreno/Lote","Oficina","Bodega","Otros"};
-        spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, letra));
-        String t_propie = spinner.getSelectedItem().toString();
+        Spinner spinner = (Spinner) findViewById(R.id.tipos_propiedades_bp);
+        final String[] letra_tipo = { "Departamento","Casa","Terreno/Lote","Oficina","Bodega","Otros"};
+        spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, letra_tipo));
+        text = spinner.getSelectedItem().toString();
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                System.out.println("///////////// departamentossssssssss");
+                s_tipop_aux = letra_tipo[pos];
+                //System.out.println("///////////// tipo inmueble = " + s_tipo_inmuheble);
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
 
 
-        Spinner spinner1 = (Spinner) findViewById(R.id.tipo_negocio);
-        String[] t_n = { "Alquiler","Compra"};
-        spinner1.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, t_n));
-        String t_negocio = spinner1.getSelectedItem().toString();
+        Spinner spinner1 = (Spinner) findViewById(R.id.tipo_negocio_bp);
+        final String[] t_n_s = { "Alquiler","Compra"};
+        spinner1.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, t_n_s));
+        text1 = spinner.getSelectedItem().toString();
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                System.out.println("///////////// departamentossssssssss");
+                s_tipon_aux = t_n_s[pos];
+                //System.out.println("///////////// tipo inmueble = " + s_tipo_inmuheble);
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
 
 
 
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
-            String tipo_pro = this.LISTINFO.get(position).getTipo_inmu_i();
-            String tipo_ne = this.LISTINFO.get(position).getOperacion_i();
-
-
-
-            Intent result_b = new Intent(this, Result_busqueda.class);
-            result_b.putExtra("t_pr", tipo_pro);
-            result_b.putExtra("t_ne", tipo_ne);
-            this.startActivity(result_b);
-            System.out.print("jdjjdh.............................,,,,,,,,,,,,,,,,,,,,,,"+tipo_ne);
-        }
 }

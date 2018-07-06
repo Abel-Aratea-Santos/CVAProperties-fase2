@@ -2,6 +2,7 @@ package com.example.asus.cvaproperties.ListDataSource;
 
 
 public class ItemList {
+    private String bton;
     private String img_casa_i;
     private String precio_i;
     private String nombre_casa_i;
@@ -46,6 +47,10 @@ public class ItemList {
     public String getImg_casa_i() {
         return this.img_casa_i;
 
+    }
+
+    public String getBton() {
+        return this.bton;
     }
 
     public String getPrecio_i()

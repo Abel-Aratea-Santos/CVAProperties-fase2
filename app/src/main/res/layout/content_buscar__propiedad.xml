@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <Spinner
-        android:id="@+id/tipos_propiedades"
+        android:id="@+id/tipos_propiedades_bp"
         android:layout_width="match_parent"
         android:layout_height="18dp"
         android:layout_marginBottom="351dp"
@@ -100,10 +100,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tipos_propiedades" />
+        app:layout_constraintTop_toBottomOf="@+id/tipos_propiedades_bp" />
 
     <Spinner
-        android:id="@+id/tipo_negocio"
+        android:id="@+id/tipo_negocio_bp"
         android:layout_width="137dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="100dp"
@@ -126,7 +126,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tipo_negocio"
+        app:layout_constraintTop_toBottomOf="@+id/tipo_negocio_bp"
         app:layout_constraintVertical_bias="0.762" />
 
 
