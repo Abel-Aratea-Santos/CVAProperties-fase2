@@ -20,7 +20,7 @@
 
 
         <ListView
-            android:id="@+id/ListViewCasas"
+            android:id="@+id/ListViewCasas_r"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

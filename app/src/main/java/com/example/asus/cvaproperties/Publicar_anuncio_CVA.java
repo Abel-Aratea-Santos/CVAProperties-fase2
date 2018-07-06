@@ -34,7 +34,7 @@ private Context root;
 //Button  registrar_x;
 
 String r_op_aux = "", r_as_aux ="", r_ai_aux="", r_ca_aux="";
-String s_tipo_inmuheble = "", s_num_hab="", s_num_ba="", s_num_pla;
+String s_tipo_inmuheble , s_num_hab, s_num_ba, s_num_pla;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,25 +55,26 @@ String s_tipo_inmuheble = "", s_num_hab="", s_num_ba="", s_num_pla;
         final String[] letra = { "Departamento","Casa","Terreno/Lote","Oficina","Bodega","Otros"};
         spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, letra));
         String text = spinner.getSelectedItem().toString();
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                System.out.println("///////////// departamentossssssssss");
+                System.out.println("///////////// departamentossssssssss  "+ id);
                 s_tipo_inmuheble = letra[pos];
                 System.out.println("///////////// tipo inmueble = " + s_tipo_inmuheble);
             }
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
+/*
         Spinner spinner1 = (Spinner) findViewById(R.id.num_habitaciones_B);
         final String[] t_n = { "1","2","3","4","5","6","7","8","9","10"};
         spinner1.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, t_n));
-        String text1 = spinner.getSelectedItem().toString();
+        String text1 = spinner1.getSelectedItem().toString();
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 System.out.println("///////////// departamentossssssssss");
                 s_num_hab = t_n[pos];
-                //System.out.println("///////////// tipo inmueble = " + s_tipo_inmuheble);
+                System.out.println("///////////// num_habitaciones = " + s_num_hab);
             }
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -107,17 +108,16 @@ String s_tipo_inmuheble = "", s_num_hab="", s_num_ba="", s_num_pla;
             }
         });
 
-
+*/
 
     }
-
     public void onRadioButtonClickedOperacion(View view) {
 
         // Is the button now checked?
 
         boolean checked = ((RadioButton) view).isChecked();
         r_op_aux =  ((RadioButton) view).getText().toString();
-        System.out.println("///////////// r_op = " + r_op_aux);
+        System.out.println("///////////// r_operacion = " + r_op_aux);
         // hacemos un case con lo que ocurre cada vez que pulsemos un botón
 
     }
@@ -128,7 +128,7 @@ String s_tipo_inmuheble = "", s_num_hab="", s_num_ba="", s_num_pla;
 
         boolean checked = ((RadioButton) view).isChecked();
         r_as_aux =  ((RadioButton) view).getText().toString();
-        System.out.println("///////////// r_op = " + r_as_aux);
+        System.out.println("///////////// r_ascensor = " + r_as_aux);
         // hacemos un case con lo que ocurre cada vez que pulsemos un botón
 
     }
@@ -139,7 +139,7 @@ String s_tipo_inmuheble = "", s_num_hab="", s_num_ba="", s_num_pla;
 
         boolean checked = ((RadioButton) view).isChecked();
         r_ai_aux =  ((RadioButton) view).getText().toString();
-        System.out.println("///////////// r_op = " + r_ai_aux);
+        System.out.println("///////////// r_aire = " + r_ai_aux);
         // hacemos un case con lo que ocurre cada vez que pulsemos un botón
 
     }
@@ -150,7 +150,7 @@ String s_tipo_inmuheble = "", s_num_hab="", s_num_ba="", s_num_pla;
 
         boolean checked = ((RadioButton) view).isChecked();
         r_ca_aux =  ((RadioButton) view).getText().toString();
-        System.out.println("///////////// r_op = " + r_ca_aux);
+        System.out.println("///////////// r_calefaccion = " + r_ca_aux);
         // hacemos un case con lo que ocurre cada vez que pulsemos un botón
 
     }

@@ -47,7 +47,7 @@ public class Buscar_Propiedad extends AppCompatActivity  {
             public void onClick(View v) {
 
                 System.out.println("....................... click en registrarse");
-                Intent intent = new Intent (v.getContext(), Home_CVA.class);
+                Intent intent = new Intent (v.getContext(), Result_busqueda.class);
                 startActivityForResult(intent, 0);
             }
         });
