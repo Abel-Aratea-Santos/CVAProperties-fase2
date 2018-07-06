@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.asus.cvaproperties.DATA.DataApp;
@@ -46,6 +47,8 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
         LIST = (ListView) this.findViewById(R.id.ListViewCasas);
 
         loadInitialRestData();
@@ -57,6 +60,8 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
     private void loadInitialRestData() {
         AsyncHttpClient client = new AsyncHttpClient();
      //  String url ="http://192.168.6.142:5000/api/v1.0/inmueble";
+
+
         client.get("http://192.168.1.11:5000/api/v1.0/datos_anuncio",new  JsonHttpResponseHandler(){
 
             @Override

@@ -206,7 +206,7 @@ String s_tipo_inmuheble = "", s_num_hab="", s_num_ba="", s_num_pla;
 
 
         client.post(DataApp.REST_INMUEBLE_POST, params, new JsonHttpResponseHandler(){
-            @Override
+            /*@Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     String msn = response.getString("msn");
@@ -225,7 +225,7 @@ String s_tipo_inmuheble = "", s_num_hab="", s_num_ba="", s_num_pla;
                     e.printStackTrace();
                 }
                 //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONObject) was not overriden, but callback was received");
-            }
+            }*/
         });
 
     }
