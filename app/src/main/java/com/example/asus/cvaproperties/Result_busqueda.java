@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.asus.cvaproperties.DATA.DataApp;
 import com.example.asus.cvaproperties.ListDataSource.CustomAdapter;
@@ -55,9 +56,13 @@ public class Result_busqueda extends AppCompatActivity implements AdapterView.On
     }
 
     private void loadInitialRestData() {
+        Bundle b=getIntent().getExtras();
+        String p=b.getString("tipop");
+        String n=b.getString("tipon");
+        Toast.makeText(getApplicationContext(),"esto es p "+p+" esto es n "+n,Toast.LENGTH_LONG).show();
         AsyncHttpClient client = new AsyncHttpClient();
         //  String url ="http://192.168.6.142:5000/api/v1.0/inmueble";
-        client.get("http://192.168.1.11:5000/api/v1.0/filtro_tipo/?tipo_inmueble_a=lote&operacion_a=alquiler",new  JsonHttpResponseHandler(){
+        client.get("http://192.168.43.47:5000/api/v1.0/filtro_tipo/?tipo_inmueble_a="+p+"&operacion_a="+n,new  JsonHttpResponseHandler(){
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

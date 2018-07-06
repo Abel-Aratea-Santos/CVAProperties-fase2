@@ -65,12 +65,12 @@ String s_tipo_inmuheble , s_num_hab, s_num_ba, s_num_pla;
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-/*
+
         Spinner spinner1 = (Spinner) findViewById(R.id.num_habitaciones_B);
         final String[] t_n = { "1","2","3","4","5","6","7","8","9","10"};
         spinner1.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, t_n));
         String text1 = spinner1.getSelectedItem().toString();
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 System.out.println("///////////// departamentossssssssss");
                 s_num_hab = t_n[pos];
@@ -84,7 +84,7 @@ String s_tipo_inmuheble , s_num_hab, s_num_ba, s_num_pla;
         Spinner spinner2 = (Spinner) findViewById(R.id.num_banos_B);
         spinner2.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, t_n));
         String text2 = spinner.getSelectedItem().toString();
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 System.out.println("///////////// departamentossssssssss");
                 s_num_ba = t_n[pos];
@@ -98,7 +98,7 @@ String s_tipo_inmuheble , s_num_hab, s_num_ba, s_num_pla;
         Spinner spinner3 = (Spinner) findViewById(R.id.num_plantas_B);
         spinner3.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, t_n));
         String text3 = spinner.getSelectedItem().toString();
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 System.out.println("///////////// departamentossssssssss");
                 s_num_pla = t_n[pos];
@@ -108,7 +108,8 @@ String s_tipo_inmuheble , s_num_hab, s_num_ba, s_num_pla;
             }
         });
 
-*/
+
+        
 
     }
     public void onRadioButtonClickedOperacion(View view) {
