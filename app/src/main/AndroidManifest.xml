@@ -69,7 +69,8 @@
         <activity
             android:name=".Result_busqueda"
             android:label="@string/title_activity_result_busqueda"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>
