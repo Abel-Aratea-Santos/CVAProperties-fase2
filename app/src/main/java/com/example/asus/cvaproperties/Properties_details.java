@@ -1,5 +1,6 @@
 package com.example.asus.cvaproperties;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 import com.example.asus.cvaproperties.DATA.DataApp;
 import com.example.asus.cvaproperties.Data_Propiedad_details.PropertiesDetails;
+import com.example.asus.cvaproperties.ListDataSource.OnLoadImage;
+import com.example.asus.cvaproperties.ListDataSource.Taskimg;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -22,7 +25,7 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class Properties_details extends AppCompatActivity {
+public class Properties_details extends AppCompatActivity implements OnLoadImage{
 
     public  String idImdb;
     protected TextView nombre_pd, email_pd, cel_pd, operacion_pd, tipo_pd, precio_pd, superficie_pd, hab_pd, banos_pd, plantas_pd, ascensor_pd, aire_pd, calefaccion_pd, frase_pd, ubicacion_pd, descripcion_pd;
@@ -91,6 +94,9 @@ public class Properties_details extends AppCompatActivity {
         });
     }
     private void setInformation(){
+        Taskimg imgload = new Taskimg();
+        imgload.execute(DATA.getImg_a());
+        imgload.setLoadImage(this.img_pd,this);
 
         this.nombre_pd.setText(DATA.getNombre_a());
         this.email_pd.setText(DATA.getEmail_a());
@@ -131,4 +137,8 @@ public class Properties_details extends AppCompatActivity {
         this.img_pd = (ImageView)this.findViewById(R.id.img_pd);
      }
 
+    @Override
+    public void setLoadImage(ImageView container, Bitmap img) {
+        container.setImageBitmap(img);
+    }
 }
