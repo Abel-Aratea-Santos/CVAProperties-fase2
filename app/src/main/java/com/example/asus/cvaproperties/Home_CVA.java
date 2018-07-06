@@ -101,7 +101,7 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
                         urlList.add(DataApp.HOST + listGalery.getString(j));
                         }
                                            //  System.out.println("****************************** la ubicacion es => " + ubicacion);
-                        ItemList item = new ItemList (urlList.get(0),idimdb,precio, nombre, ubicacion, superficie, num_habitaciones, num_plantas);
+                        ItemList item = new ItemList (urlList.get(0),idimdb,precio+" $", nombre, ubicacion, "Sup: "+superficie, "Hab: "+num_habitaciones, "Plant: "+num_plantas);
                         LISTINFO.add(item);
 
                     }

@@ -84,7 +84,7 @@ public class Properties_details extends AppCompatActivity implements OnLoadImage
                     for (int j=0; j < listGalery.length(); j++){
                         urlList.add(DataApp.HOST + listGalery.getString(j));
                     }
-                            DATA = new PropertiesDetails(urlList.get(0),nombre_a,email_a,telefono_a,operacion_a,tipo_inmueble_a,precio_a,superficie_a,num_hab_a,num_banos_a,num_plantas_a,ascensor_a,aire_a,calefaccion_a,frase_destacada_a,ubicacion_a,observaciones_a);
+                            DATA = new PropertiesDetails(urlList.get(0),"Nombre : "+nombre_a,"Email : "+email_a,"Telf : "+telefono_a,"Operacion : "+operacion_a,"Tipo : "+tipo_inmueble_a,precio_a+" $","Sup : "+superficie_a,"Hab : "+num_hab_a,"Baños : "+num_banos_a,"Plants : "+num_plantas_a,"Ascensor : "+ascensor_a,"AireAcon : "+aire_a,"Calefac : "+calefaccion_a,"Frase : "+frase_destacada_a,"Ubicacion : "+ubicacion_a,"OBS : "+observaciones_a);
                             root.setInformation();
                 } catch (JSONException e) {
                     e.printStackTrace();
