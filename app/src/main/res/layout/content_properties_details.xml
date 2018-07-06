@@ -40,7 +40,7 @@
 
             <TextView
                 android:id="@+id/precio_pd"
-                android:layout_width="122dp"
+                android:layout_width="380dp"
                 android:layout_height="52dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
@@ -111,10 +111,10 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:textColor="#ffffff"
-                android:textStyle="bold"
                 android:textSize="17dp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toEndOf="@+id/hab_pd"
                 app:layout_constraintTop_toBottomOf="@+id/ubicacion_pd" />
 

@@ -50,16 +50,6 @@ String s_tipo_inmuheble = "", s_num_hab="", s_num_ba="", s_num_pla;
 
         LoadComponents();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-
 
         Spinner spinner = (Spinner) findViewById(R.id.Spinner_tipo_inmueble_B);
         final String[] letra = { "Departamento","Casa","Terreno/Lote","Oficina","Bodega","Otros"};
