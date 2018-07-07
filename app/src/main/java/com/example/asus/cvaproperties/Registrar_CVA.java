@@ -2,6 +2,7 @@ package com.example.asus.cvaproperties;
 
 import android.content.Intent;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -14,16 +15,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class Registrar_CVA extends AppCompatActivity implements View.OnClickListener {
+public class Registrar_CVA extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
 
     private Context root;
+    GoogleApiClient client;
+    private int GOOGLE_CODE = 11235;
 
 
     @Override
@@ -34,6 +38,13 @@ public class Registrar_CVA extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_registrar__cv);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        GoogleSignInOptions options = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        client = new GoogleApiClient.Builder(this).enableAutoManage(this,this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API,options)
+                .build();
 
         System.out.println("....................... dentro de registrar");
 
@@ -49,46 +60,61 @@ public class Registrar_CVA extends AppCompatActivity implements View.OnClickList
         });
 
         //
-        Button btn_ingresar = (Button) findViewById(R.id.btn_enviar_datos);
-        btn_ingresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println("....................... click en login");
-                Intent intent = new Intent(v.getContext(), MainActivity.class);
-                intent.putExtra("logear", 1);
-                startActivity(intent);
-            }
-        });
 
-       // loadcomponentes();
+        loadcomponentes();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
     }
 
-    /*
     private void loadcomponentes() {
-        Button btn = (Button)this.findViewById(R.id.btn_enviar_datos);
-        btn.setOnClickListener(this);
+      SignInButton goglebtn = (SignInButton)this.findViewById(R.id.googlebutton);
+      goglebtn.setOnClickListener(new View.OnClickListener(){
 
-    }*/
+          @Override
+          public void onClick(View v) {
+               Intent intent = Auth.GoogleSignInApi.getSignInIntent(client);
+               startActivityForResult(intent,GOOGLE_CODE);
+          }
+      });
+
+    }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == GOOGLE_CODE){
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            if(result.isSuccess()){
+                Intent login_r = new Intent(this, Login_Detalle.class);
+                Uri photo = result.getSignInAccount().getPhotoUrl();
+                String url_foto = "https://lh3.googleusercontent.com" + photo.getPath();
 
+                login_r.putExtra("avatar",url_foto);
+                login_r.putExtra("nombre", result.getSignInAccount().getDisplayName());
+                login_r.putExtra("email", result.getSignInAccount().getEmail());
+                startActivity(login_r);
+                //esult.getSignInAccount().
+
+                Toast.makeText(this, "logueado", Toast.LENGTH_LONG).show();
+
+            }
+            else{
+                Toast.makeText(this, "EROOR", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 
     @Override
     public void onClick(View v) {
 
 
-        TextView email_r = (TextView)this.findViewById(R.id.email_r);
-        TextView pasword_r = (TextView)this.findViewById(R.id.pasword_r);
 
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
 }

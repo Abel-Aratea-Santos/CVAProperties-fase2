@@ -17,4 +17,6 @@
     <string name="title_activity_result_busqueda">Result_busqueda</string>
     <string name="title_activity_carga__mapa">Carga_Mapa</string>
     <string name="title_activity_salir">Salir</string>
+    <string name="title_activity_ogin_result">ogin_result</string>
+    <string name="title_activity_login__detalle">Login_Detalle</string>
 </resources>

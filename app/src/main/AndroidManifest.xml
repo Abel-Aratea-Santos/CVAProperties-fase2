@@ -20,13 +20,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Buscar_Propiedad"
             android:label="@string/title_activity_buscar__propiedad"
@@ -46,7 +40,13 @@
         <activity
             android:name=".Registrar_CVA"
             android:label="@string/title_activity_registrar__cv"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Properties_details"
             android:label="@string/title_activity_properties_details"
@@ -70,6 +70,10 @@
             android:name=".Result_busqueda"
             android:label="@string/title_activity_result_busqueda"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Login_Detalle"
+            android:label="@string/title_activity_login__detalle"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

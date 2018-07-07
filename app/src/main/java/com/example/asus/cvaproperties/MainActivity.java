@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         //VERIFICO SI SE LEGEO
-        Bundle datos = this.getIntent().getExtras();
+        /*Bundle datos = this.getIntent().getExtras();
         //int aux_login = datos.getInt("logear", 0);
         if(datos == null)
         {
@@ -36,15 +36,8 @@ public class MainActivity extends AppCompatActivity
 
         }
         //FIN DE VERIFICO
+*/
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

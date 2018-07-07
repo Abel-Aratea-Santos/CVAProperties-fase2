@@ -95,8 +95,18 @@
                 android:padding="16dp"
                 android:clickable="true"
                 android:layout_marginTop="16dp"
-
                 />
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/googlebutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+
+
+
+                ></com.google.android.gms.common.SignInButton>
+
 
         </LinearLayout>
 

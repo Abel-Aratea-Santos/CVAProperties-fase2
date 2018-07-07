@@ -109,7 +109,7 @@ String s_tipo_inmuheble , s_num_hab, s_num_ba, s_num_pla;
         });
 
 
-        
+
 
     }
     public void onRadioButtonClickedOperacion(View view) {
