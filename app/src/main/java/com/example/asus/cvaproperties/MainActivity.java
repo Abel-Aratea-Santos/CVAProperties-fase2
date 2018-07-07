@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.OnConnectionFailedListener {
 
 
-    private ImageView avatar;
+    //private ImageView avatar;
     private TextView nombre;
     private TextView email;
     private TextView identificador;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        avatar = (ImageView) findViewById(R.id.avatar);
+        //avatar = (ImageView) findViewById(R.id.avatar);
         nombre = (TextView)findViewById(R.id.nombre);
         email = (TextView)findViewById(R.id.email);
         identificador = (TextView)findViewById(R.id.identificador);
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity
          email.setText(account.getEmail());
          identificador.setText(account.getId());
 
-         Glide.with(this).load(account.getPhotoUrl()).into(avatar);
+         //Glide.with(this).load(account.getPhotoUrl()).into(avatar);
         }else{
          goLoginInScreen();
      }
