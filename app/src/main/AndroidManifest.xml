@@ -28,6 +28,11 @@
             </intent-filter>
         </activity>
         <activity
+        android:name=".Registrar_CVA"
+        android:label="@string/title_activity_registrar__cv"
+        android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
             android:name=".Buscar_Propiedad"
             android:label="@string/title_activity_buscar__propiedad"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -43,10 +48,7 @@
             android:name=".Publicar_anuncio_CVA"
             android:label="@string/title_activity_publicar_anuncio__cv"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Registrar_CVA"
-            android:label="@string/title_activity_registrar__cv"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".Properties_details"
             android:label="@string/title_activity_properties_details"

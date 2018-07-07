@@ -14,30 +14,47 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class Registrar_CVA extends AppCompatActivity implements View.OnClickListener {
+public class Registrar_CVA extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
-    private Context root;
-
+    private GoogleApiClient googleApiClient;
+    private SignInButton signInButton;
+    public static final int SIGN_IN_CODE = 777;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        root = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar__cv);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        System.out.println("....................... dentro de registrar");
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        googleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this,this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+        signInButton = (SignInButton)findViewById(R.id.singInButton);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+                startActivityForResult(intent,SIGN_IN_CODE);
+            }
+        });
 
 
+        /*
         Button btn = (Button) findViewById(R.id.registrarse_r);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,36 +76,36 @@ public class Registrar_CVA extends AppCompatActivity implements View.OnClickList
                 startActivity(intent);
             }
         });
-
-       // loadcomponentes();
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+*/
     }
-
-    /*
-    private void loadcomponentes() {
-        Button btn = (Button)this.findViewById(R.id.btn_enviar_datos);
-        btn.setOnClickListener(this);
-
-    }*/
-
-
-
 
     @Override
-    public void onClick(View v) {
-
-
-        TextView email_r = (TextView)this.findViewById(R.id.email_r);
-        TextView pasword_r = (TextView)this.findViewById(R.id.pasword_r);
-
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == SIGN_IN_CODE){
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            handleSignInResult(result);
+        }
+    }
+
+    private void handleSignInResult(GoogleSignInResult result) {
+        if(result.isSuccess()){
+            goMainScreen();
+
+        }else {
+            Toast.makeText(this, "ERROR IN LOGIN", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void goMainScreen() {
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
 }
+

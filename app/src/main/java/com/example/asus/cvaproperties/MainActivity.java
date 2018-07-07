@@ -2,6 +2,7 @@ package com.example.asus.cvaproperties;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -13,10 +14,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.OptionalPendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.OnConnectionFailedListener {
+
+
+    private ImageView avatar;
+    private TextView nombre;
+    private TextView email;
+    private TextView identificador;
+    private GoogleApiClient googleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +46,28 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        avatar = (ImageView) findViewById(R.id.avatar);
+        nombre = (TextView)findViewById(R.id.nombre);
+        email = (TextView)findViewById(R.id.email);
+        identificador = (TextView)findViewById(R.id.identificador);
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        googleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this,this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+
+
+/*
+        portada = this.getIntent().getExtras().getString("portada");
+        email = this.getIntent().getExtras().getString("email");
+        nombre = this.getIntent().getExtras().getString("nombre");
+*/
+/*
         //VERIFICO SI SE LEGEO
         Bundle datos = this.getIntent().getExtras();
         //int aux_login = datos.getInt("logear", 0);
@@ -36,7 +79,7 @@ public class MainActivity extends AppCompatActivity
 
         }
         //FIN DE VERIFICO
-
+*/
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +97,44 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(googleApiClient);
+        if(opr.isDone()){
+            GoogleSignInResult result = opr.get();
+            handleSignInResult(result);
+        }else{
+            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
+                @Override
+                public void onResult(@NonNull GoogleSignInResult googleSignInResult) {
+                    handleSignInResult(googleSignInResult);
+                }
+            });
+        }
+    }
+
+    private void handleSignInResult(GoogleSignInResult result) {
+     if(result.isSuccess()){
+         GoogleSignInAccount account = result.getSignInAccount();
+         nombre.setText(account.getDisplayName());
+         email.setText(account.getEmail());
+         identificador.setText(account.getId());
+
+         Glide.with(this).load(account.getPhotoUrl()).into(avatar);
+        }else{
+         goLoginInScreen();
+     }
+
+    }
+
+    private void goLoginInScreen() {
+        Intent intent = new Intent(this,Registrar_CVA.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
 
@@ -130,5 +211,35 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
+    }
+
+    public void CerrarSesion(View view) {
+        Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(@NonNull Status status) {
+                if(status.isSuccess()){
+                    goLoginInScreen();
+                }else{
+                    Toast.makeText(getApplicationContext(),R.string.CerrarSesion,Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+    }
+
+    public void Delete(View view) {
+        Auth.GoogleSignInApi.revokeAccess(googleApiClient).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(@NonNull Status status) {
+                if(status.isSuccess()){
+                    goLoginInScreen();
+                }else{
+                    Toast.makeText(getApplicationContext(),"Error al Revocar",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
 }
