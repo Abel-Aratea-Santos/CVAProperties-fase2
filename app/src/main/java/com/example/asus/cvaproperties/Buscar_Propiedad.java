@@ -28,6 +28,7 @@ public class Buscar_Propiedad extends AppCompatActivity  {
     public String text;
     public String text1;
 
+
     public String s_tipop_aux ="",s_tipon_aux = "";
 
 
@@ -47,7 +48,10 @@ public class Buscar_Propiedad extends AppCompatActivity  {
             public void onClick(View v) {
 
                 System.out.println("....................... click en registrarse");
-                Intent intent = new Intent (v.getContext(), Home_CVA.class);
+
+                Intent intent = new Intent (v.getContext(), Result_busqueda.class);
+                intent.putExtra("tipop",s_tipop_aux);
+                intent.putExtra("tipon",s_tipon_aux);
                 startActivityForResult(intent, 0);
             }
         });
@@ -55,15 +59,19 @@ public class Buscar_Propiedad extends AppCompatActivity  {
 
 
         Spinner spinner = (Spinner) findViewById(R.id.tipos_propiedades_bp);
-        final String[] letra_tipo = { "Departamento","Casa","Terreno/Lote","Oficina","Bodega","Otros"};
+        final String[] letra_tipo = {"Departamento","Casa","Terreno/Lote","Oficina","Bodega","Otros"};
         spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, letra_tipo));
         text = spinner.getSelectedItem().toString();
+        System.out.println("///////////// departamentossssssssss  "+text);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                System.out.println("///////////// departamentossssssssss");
-                s_tipop_aux = letra_tipo[pos];
-                //System.out.println("///////////// tipo inmueble = " + s_tipo_inmuheble);
-            }
+                System.out.println("///////////// departamentossssssssss  "+pos);
+
+                    s_tipop_aux = letra_tipo[pos];
+                    System.out.println("///////////// tipo inmueble = " + s_tipop_aux);
+
+                }
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
@@ -71,14 +79,14 @@ public class Buscar_Propiedad extends AppCompatActivity  {
 
 
         Spinner spinner1 = (Spinner) findViewById(R.id.tipo_negocio_bp);
-        final String[] t_n_s = { "Alquiler","Compra"};
+        final String[] t_n_s = { "Alquiler","Venta"};
         spinner1.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, t_n_s));
         text1 = spinner.getSelectedItem().toString();
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                System.out.println("///////////// departamentossssssssss");
+                System.out.println("///////////// departamentossssssssss mas la pos "+pos);
                 s_tipon_aux = t_n_s[pos];
-                //System.out.println("///////////// tipo inmueble = " + s_tipo_inmuheble);
+                System.out.println("///////////// tipo inmueble = " + s_tipon_aux+" espiner 2");
             }
             public void onNothingSelected(AdapterView<?> parent) {
             }
