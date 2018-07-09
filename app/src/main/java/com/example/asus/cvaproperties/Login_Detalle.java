@@ -42,6 +42,19 @@ public class Login_Detalle extends AppCompatActivity implements OnLoadImage {
         TextView email_l = (TextView)this.findViewById(R.id.email_login);
         ImageView img_ld = (ImageView) this.findViewById(R.id.img_login);
         Button btn = (Button) this.findViewById(R.id.btn_login_2);
+        Button btn1 = (Button)this.findViewById(R.id.buscar_lo_que_quiero);
+        Button btn2 = (Button)this.findViewById(R.id.btn_agentes);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("....................... click en registrarse");
+                Intent intent = new Intent (v.getContext(), Buscar_Propiedad.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+
 
         name_l.setText(nombre_ld);
         email_l.setText(email_ld);
