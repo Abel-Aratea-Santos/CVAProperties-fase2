@@ -23,6 +23,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -196,19 +197,25 @@ String s_tipo_inmuheble , s_num_hab, s_num_ba, s_num_pla;
         params.put("observaciones_a",observaciones_x.getText());
 
 
+
         client.post(DataApp.REST_INMUEBLE_POST, params, new JsonHttpResponseHandler(){
-            /*@Override
+
+            @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
                 try {
                     String msn = response.getString("msn");
-                    String id = response.getString("id");
+                    String id = response.getString("imn");
 
+                    Toast.makeText(root, "msn......................  "+msn, Toast.LENGTH_LONG).show();
+                    Toast.makeText(root, "msn......................  "+id, Toast.LENGTH_LONG).show();
+                    System.out.println("///////////// r_op = " + msn);
                     System.out.println("///////////// r_op = " + id);
                     UserData.ID = id;
                     if (msn != null) {
 
-                        //Intent camera = new Intent(root, CameraForm.class);
-                        //root.startActivity(camera);
+                        Intent camera = new Intent(root, Camera_Form.class);
+                        root.startActivity(camera);
                     } else {
                         Toast.makeText(root, "ERROR AL enviar los datos", Toast.LENGTH_LONG).show();
                     }
@@ -216,7 +223,7 @@ String s_tipo_inmuheble , s_num_hab, s_num_ba, s_num_pla;
                     e.printStackTrace();
                 }
                 //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONObject) was not overriden, but callback was received");
-            }*/
+            }
         });
 
     }

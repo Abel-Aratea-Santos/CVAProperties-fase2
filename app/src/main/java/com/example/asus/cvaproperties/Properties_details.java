@@ -50,7 +50,7 @@ public class Properties_details extends AppCompatActivity implements OnLoadImage
 
     private void loadAsyncData() {
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://192.168.1.11:5000/api/v1.0/datos_anuncio/"+this.idImdb,new JsonHttpResponseHandler(){
+        client.get("http://192.168.43.207:5000/api/v1.0/datos_anuncio/"+this.idImdb,new JsonHttpResponseHandler(){
            // System.out.println("entro a la api");
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 

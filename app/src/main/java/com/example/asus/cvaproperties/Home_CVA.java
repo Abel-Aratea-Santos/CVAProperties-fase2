@@ -62,7 +62,7 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
      //  String url ="http://192.168.6.142:5000/api/v1.0/inmueble";
 
 
-        client.get("http://192.168.1.11:5000/api/v1.0/datos_anuncio",new  JsonHttpResponseHandler(){
+        client.get("http://192.168.43.207:5000/api/v1.0/datos_anuncio",new  JsonHttpResponseHandler(){
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -73,25 +73,8 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
                     System.out.println("****************************** entro al object array " + response);
-                    /*JSONArray list = response;
-                    for(int i=0; 1< list.length(); i++){
-                        JSONObject itemJsom = list.getJSONObject(i);
 
-                        String precio = itemJsom.getString("precio");
-                        String nombre = itemJsom.getString("nombre");
-                        String ubicacion = itemJsom.getString("ubicacion");
-                        String superficie = itemJsom.getString("superficie");
-                        String num_habitaciones = itemJsom.getString("num_banos");
-                        String num_plantas = itemJsom.getString("num_plantas");
-
-                        ItemList item = new ItemList (precio, nombre, ubicacion, superficie, num_habitaciones, num_plantas,null,null);
-                        LISTINFO.add(item);
-                    }*/
-                    String img_inmu [] = new String[10];
-                    int n = 0;
                     for(int i=0; i< response.length(); i++){
-                        //System.out.println("****************************** el precio es => " + response.getJSONObject(i).getString("precio"));
-                        //String img_inmueble = itemJsom.getString("gallery");
                         JSONObject itemJsom = response.getJSONObject(i);
                         String idimdb = itemJsom.getString("_id");
                         String precio = itemJsom.getString("precio_a");
