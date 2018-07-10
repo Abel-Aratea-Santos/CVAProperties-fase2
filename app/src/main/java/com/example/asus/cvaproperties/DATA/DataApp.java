@@ -9,5 +9,6 @@ public class DataApp {
     static public String REST_USER_POST = HOST + "/api/v1.0/user";
     static public String REST_AGENTE_POST = HOST + "/api/v1.0/agente";
     static public String REST_USERIMG_POST = HOST + "/api/v1.0/homeimg";
+    static public String REST_HOME_PATCH = HOST +"/api/v1.0/mapa";
     //static public String HOST_BUSCAR = ""
 }
