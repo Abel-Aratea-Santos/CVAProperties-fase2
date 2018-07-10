@@ -2,7 +2,12 @@ package com.example.asus.cvaproperties.ListDataSource;
 
 
 public class ItemList {
-    private String bton;
+    private String id_age;
+    private String nombre_agente;
+    private String email_agente;
+    private String tel_agente;
+    private String exp_agente;
+    private String des_agent;
     private String img_casa_i;
     private String precio_i;
     private String nombre_casa_i;
@@ -44,14 +49,45 @@ public class ItemList {
 
     }
 
+    public ItemList(String id_age, String nombre_agente, String email_agente, String tel_agente, String exp_agente, String des_agent){
+        this.id_age = id_age;
+        this.nombre_agente = nombre_agente;
+        this.email_agente = email_agente;
+        this.tel_agente = tel_agente;
+        this.exp_agente = exp_agente;
+        this.des_agent = des_agent;
+    }
+
+    public String getDes_agent() {
+        return this.des_agent;
+    }
+
+    public String getId_age() {
+        return this.id_age;
+    }
+
+    public String getNombre_agente() {
+        return this.nombre_agente;
+    }
+
+    public String getEmail_agente() {
+        return this.email_agente;
+    }
+
+    public String getTel_agente() {
+        return this.tel_agente;
+    }
+
+    public String getExp_agente() {
+        return this.exp_agente;
+    }
+
     public String getImg_casa_i() {
         return this.img_casa_i;
 
     }
 
-    public String getBton() {
-        return this.bton;
-    }
+
 
     public String getPrecio_i()
     {

@@ -62,7 +62,7 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
      //  String url ="http://192.168.6.142:5000/api/v1.0/inmueble";
 
 
-        client.get("http://192.168.43.207:5000/api/v1.0/datos_anuncio",new  JsonHttpResponseHandler(){
+        client.get("http://192.168.1.10:5000/api/v1.0/datos_anuncio",new  JsonHttpResponseHandler(){
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -95,9 +95,6 @@ public class Home_CVA extends AppCompatActivity implements AdapterView.OnItemCli
                     }
 
                     ADAPTER = new CustomAdapter(root,LISTINFO);
-
-
-                    //eventos
 
                     LIST.setAdapter(ADAPTER);
                 } catch (JSONException e) {

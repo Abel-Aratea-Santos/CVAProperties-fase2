@@ -21,4 +21,9 @@
     <string name="title_activity_login__detalle">Login_Detalle</string>
     <string name="title_activity_camera__form">Camera_Form</string>
     <string name="title_activity_agentes">Agentes</string>
+    <string name="title_activity_registrar__agente">Registrar_Agente</string>
+    <string name="title_activity_details__agente">Details_Agente</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_mapa">Mapa</string>
 </resources>

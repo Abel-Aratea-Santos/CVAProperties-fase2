@@ -1,70 +1,66 @@
 package com.example.asus.cvaproperties;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.UiSettings;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polygon;
-import com.google.android.gms.maps.model.PolygonOptions;
-import com.google.android.gms.maps.model.TileOverlay;
 import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.TreeMap;
 
 import cz.msebera.android.httpclient.Header;
 
-public class Buscar_Mapa extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class Mapa extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     static ArrayList<Marker> marcas=new ArrayList<>();
-    HashMap<String,LatLng> casas=new HashMap<>();
-
+    TreeMap<String,LatLng> casas=new TreeMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buscar__mapa);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        setContentView(R.layout.activity_mapa);
+       run();
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
 
     }
 
-
     private void run() {
         AsyncHttpClient client =new AsyncHttpClient();
-        client.get("http://192.168.1.10:5000/api/v1.0/mapa/", null, new JsonHttpResponseHandler() {
+        client.get("http://192.168.1.6:5000/api/v1.0/datos_anuncio/", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
-                }
+            }
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
                 JSONArray aux =timeline;
@@ -77,30 +73,15 @@ public class Buscar_Mapa extends FragmentActivity implements OnMapReadyCallback,
                         // citas.add(llenar(jsonArray.get(i)));
                         //jsonArray.get(i);
                         JSONObject aux2= (JSONObject) jsonArray.get(i);
-                        Toast.makeText(getApplicationContext(),aux2+"",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),aux2+"",Toast.LENGTH_SHORT).show();
                         String id=aux2.getString("_id");
                         double lat=Double.parseDouble(aux2.getString("lat_a"));
                         double lon=Double.parseDouble(aux2.getString("lon_a"));
-                        casas.put((String) aux2.get("_id"),new LatLng(lat,lon));
-                    }
+                        LatLng lt=new LatLng(lat,lon);
+                        casas.put(id,lt);
+                        Toast.makeText(getApplicationContext(),casas.size()+"",Toast.LENGTH_SHORT).show();
 
-                    /*for(int i=0;i<citas.size();i++){
-                        ArrayList<String> x=citas.get(i);
-                        Double lat=Double.parseDouble(x.get(9));
-                        Double lon=Double.parseDouble(x.get(13));
-                        if(x.get(3).equals("venta")){
-                            venta.put(x.get(4),new LatLng(lat,lon));
-                        }else{
-                            alquiler.put(x.get(4),new LatLng(lat,lon));
-                        }
-                        if(x.get(8).equals("casa")){
-                            casa.put(x.get(4),new LatLng(lat,lon));
-                        }
-                        else{
-                            departamento.put(x.get(4),new LatLng(lat,lon));
-                        }
-                        listar.put(x.get(4),new LatLng(lat,lon));
-                    }*/
+                    }
 
                 }
                 catch (Exception e)
@@ -109,6 +90,23 @@ public class Buscar_Mapa extends FragmentActivity implements OnMapReadyCallback,
                 };
             }
         });
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.map);
+            mapFragment.getMapAsync( this);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -158,12 +156,14 @@ public class Buscar_Mapa extends FragmentActivity implements OnMapReadyCallback,
         }
         return true;
     }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return false;
+    }
 }
-
-
-
-
-
 
 
 

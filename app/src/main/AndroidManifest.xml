@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -93,8 +94,23 @@
         </provider>
 
         <activity
+            android:name=".Registrar_Agente"
+            android:label="@string/title_activity_registrar__agente"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Details_Agente"
+            android:label="@string/title_activity_details__agente"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Agentes"
             android:label="@string/title_activity_agentes"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".Mapa"
+            android:label="@string/title_activity_mapa"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

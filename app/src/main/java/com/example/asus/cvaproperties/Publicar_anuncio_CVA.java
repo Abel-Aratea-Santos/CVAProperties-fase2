@@ -70,6 +70,7 @@ String s_tipo_inmuheble , s_num_hab, s_num_ba, s_num_pla;
         Spinner spinner1 = (Spinner) findViewById(R.id.num_habitaciones_B);
         final String[] t_n = { "1","2","3","4","5","6","7","8","9","10"};
         spinner1.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, t_n));
+
         String text1 = spinner1.getSelectedItem().toString();
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
@@ -219,6 +220,7 @@ String s_tipo_inmuheble , s_num_hab, s_num_ba, s_num_pla;
                     } else {
                         Toast.makeText(root, "ERROR AL enviar los datos", Toast.LENGTH_LONG).show();
                     }
+                    if
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

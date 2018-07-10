@@ -109,13 +109,21 @@ public class MainActivity extends AppCompatActivity
                 //finish();
                 return true;
 
-            case R.id.map:
-                i = new Intent(MainActivity.this, Buscar_Mapa.class);
+            case R.id.mapa:
+                i = new Intent(MainActivity.this, Mapa.class);
+                startActivity(i);
+                //finish();
+                return true;
+
+            case R.id.Agentes:
+                i = new Intent(MainActivity.this, Agentes.class);
                 startActivity(i);
                 //finish();
                 return true;
 
         }
+
+
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

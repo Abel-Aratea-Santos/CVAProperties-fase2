@@ -54,6 +54,15 @@ public class Login_Detalle extends AppCompatActivity implements OnLoadImage {
             }
         });
 
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("....................... click en registrarse");
+                Intent intent = new Intent (v.getContext(), Registrar_Agente.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
 
 
         name_l.setText(nombre_ld);

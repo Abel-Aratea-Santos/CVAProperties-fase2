@@ -18,9 +18,9 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Publicar Anuncio" />
         <item
-            android:id="@+id/salir"
+            android:id="@+id/Agentes"
             android:icon="@drawable/salir"
-            android:title="Salir" />
+            android:title="Agentes" />
     </group>
 
     <item android:title="Buscar">

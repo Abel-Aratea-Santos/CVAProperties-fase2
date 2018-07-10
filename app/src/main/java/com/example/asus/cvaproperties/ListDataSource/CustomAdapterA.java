@@ -18,21 +18,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-
-
-
-public class CustomAdapter extends BaseAdapter {
-
+public class CustomAdapterA extends BaseAdapter {
     private Context CONTEXT;
     private ArrayList<ItemList> LIST;
 
-    public CustomAdapter(Context context, ArrayList<ItemList> list)
+    public CustomAdapterA(Context context, ArrayList<ItemList> list)
     {
         System.out.println("----------------- entro aqui tamanio lista => " + list.size());
         this.CONTEXT = context;
         this.LIST = list;
     }
-
     @Override
     public int getCount() {
         return this.LIST.size();
@@ -47,33 +42,26 @@ public class CustomAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
-
     @Override
-    public View getView(int position, View convertView, ViewGroup parent)
-    {
+    public View getView(int position, View convertView, ViewGroup parent){
 
         if (convertView == null) {
             LayoutInflater inflate = (LayoutInflater) this.CONTEXT.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflate.inflate(R.layout.item_layout,null);
+            convertView = inflate.inflate(R.layout.item_layout_agente,null);
 
-        }
+            }
+        TextView nombre_a = (TextView)convertView.findViewById(R.id.name_agente);
+        TextView email_a = (TextView)convertView.findViewById(R.id.email_agente);
+        TextView tel_a = (TextView)convertView.findViewById(R.id.tel_agente);
+        TextView exp_a = (TextView)convertView.findViewById(R.id.exp_agente);
 
-        TextView precio_l = (TextView)convertView.findViewById(R.id.precio_l);
-        TextView nombre_casa_l = (TextView)convertView.findViewById(R.id.nombre_casa_l);
-        TextView ubicacion_l = (TextView)convertView.findViewById(R.id.ubicacion_l);
-        TextView superficie_l = (TextView)convertView.findViewById(R.id.superficie_l);
-        TextView num_habitaciones_l = (TextView)convertView.findViewById(R.id.num_habitaciones_l);
-        TextView num_plantas_l = (TextView)convertView.findViewById(R.id.num_plantas_l);
+        nombre_a.setText(this.LIST.get(position).getNombre_agente());
+        email_a.setText(this.LIST.get(position).getEmail_agente());
+        tel_a.setText(this.LIST.get(position).getTel_agente());
+        exp_a.setText(this.LIST.get(position).getExp_agente());
 
-        precio_l.setText(this.LIST.get(position).getPrecio_i());
-        nombre_casa_l.setText(this.LIST.get(position).getNombre_casa_i());
-        ubicacion_l.setText(this.LIST.get(position).getUbicacion_i());
-        superficie_l.setText(this.LIST.get(position).getSuperficie_i());
-        num_habitaciones_l.setText(this.LIST.get(position).getNum_habitaciones_i());
-        num_plantas_l.setText(this.LIST.get(position).getNum_plantas_i());
-
-        ImageView img = (ImageView)convertView.findViewById(R.id.img_inmueble_l);
-
+        ImageView img = (ImageView)convertView.findViewById(R.id.img_agente);
+/*
         try {
             URL url = new URL(this.LIST.get(position).getImg_casa_i());
             InputStream stream =url.openConnection().getInputStream();
@@ -86,7 +74,16 @@ public class CustomAdapter extends BaseAdapter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+*/
         return convertView;
     }
+
+
+
+
+
+
+
+
+
 }
