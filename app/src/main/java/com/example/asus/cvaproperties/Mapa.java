@@ -1,5 +1,6 @@
 package com.example.asus.cvaproperties;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -41,9 +42,11 @@ public class Mapa extends AppCompatActivity implements NavigationView.OnNavigati
     private GoogleMap mMap;
     static ArrayList<Marker> marcas=new ArrayList<>();
     TreeMap<String,LatLng> casas=new TreeMap<>();
+    private Context root;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        root = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mapa);
        run();
@@ -51,8 +54,17 @@ public class Mapa extends AppCompatActivity implements NavigationView.OnNavigati
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        FloatingActionButton fab2 = (FloatingActionButton)findViewById(R.id.fab3);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent salir = new Intent(root, MainActivity.class);
+                root.startActivity(salir);
+            }
+        });
 
     }
+
 
     private void run() {
         AsyncHttpClient client =new AsyncHttpClient();
