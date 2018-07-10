@@ -68,9 +68,6 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Buscar_Mapa"
-            android:label="@string/title_activity_buscar__mapa" />
-        <activity
             android:name=".Result_busqueda"
             android:label="@string/title_activity_result_busqueda"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -111,6 +108,10 @@
         <activity
             android:name=".Mapa"
             android:label="@string/title_activity_mapa"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Mapa_Properties_Details"
+            android:label="@string/title_activity_mapa__properties__details"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

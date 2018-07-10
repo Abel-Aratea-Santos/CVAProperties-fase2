@@ -111,12 +111,7 @@ public class Mapa extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+
     }
 
     @Override
@@ -146,9 +141,9 @@ public class Mapa extends AppCompatActivity implements NavigationView.OnNavigati
         for(int i=0;i<marcas.size();i++) {
             if (marker.equals(marcas.get(i))) {
                 //Toast.makeText(getApplicationContext(),"entra",Toast.LENGTH_SHORT).show();
-                in = new Intent(this, MainActivity.class);
-                in.putExtra("latitud", marker.getPosition().latitude+"");
-                in.putExtra("longitud", marker.getPosition().longitude+"");
+                in = new Intent(this, Mapa_Properties_Details.class);
+                //in.putExtra("latitud", marker.getPosition().latitude+"");
+                //in.putExtra("longitud", marker.getPosition().longitude+"");
                 in.putExtra("id", marker.getTitle()+"");
                 //in.putExtra("ema", email);
                 startActivity(in);

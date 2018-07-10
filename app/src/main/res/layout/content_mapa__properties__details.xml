@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Mapa_Properties_Details"
+    tools:showIn="@layout/activity_mapa__properties__details">
+
+    <ScrollView
+        android:id="@+id/scrollView10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/negro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+
+            <ImageView
+                android:id="@+id/img_ma"
+                android:layout_width="match_parent"
+                android:layout_height="310dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/precio_ma"
+                android:layout_width="380dp"
+                android:layout_height="52dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="20000"
+                android:textAlignment="center"
+                android:textColor="#00ffea"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/img_ma"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.971" />
+
+            <TextView
+                android:id="@+id/superficie_ma"
+                android:layout_width="70dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.026"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ubicacion_ma" />
+
+            <TextView
+                android:id="@+id/hab_ma"
+                android:layout_width="70dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.305"
+                app:layout_constraintStart_toEndOf="@+id/superficie_ma"
+                app:layout_constraintTop_toBottomOf="@+id/ubicacion_ma" />
+
+            <TextView
+                android:id="@+id/frase_ma"
+                android:layout_width="340dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toTopOf="@+id/ubicacion_ma"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_ma" />
+
+            <TextView
+                android:id="@+id/plantas_ma"
+                android:layout_width="70dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:textColor="#ffffff"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/hab_pd"
+                app:layout_constraintTop_toBottomOf="@+id/ubicacion_ma" />
+
+            <TextView
+                android:id="@+id/descripcion_ma"
+                android:layout_width="340dp"
+                android:layout_height="118dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:textColor="#ffffff"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/matextView34"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/matextView33" />
+
+            <TextView
+                android:id="@+id/matextView33"
+                android:layout_width="333dp"
+                android:layout_height="36dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="DESCRIPCION"
+                android:textColor="#00ffea"
+                android:textStyle="bold"
+                android:textSize="19dp"
+                app:layout_constraintBottom_toTopOf="@+id/descripcion_ma"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.029"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/superficie_ma" />
+
+            <TextView
+                android:id="@+id/matextView34"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="CARACTERISTICAS"
+                android:textColor="#00ffea"
+                android:textStyle="bold"
+                android:textSize="19dp"
+                app:layout_constraintBottom_toTopOf="@+id/calefaccion_ma"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.029"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/descripcion_ma" />
+
+
+            <TextView
+                android:id="@+id/calefaccion_ma"
+                android:layout_width="340dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toTopOf="@+id/ascensor_ma"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.029"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/matextView34" />
+
+
+            <TextView
+                android:id="@+id/ascensor_ma"
+                android:layout_width="340dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toTopOf="@+id/banos_ma"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.029"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calefaccion_ma" />
+
+
+            <TextView
+                android:id="@+id/banos_ma"
+                android:layout_width="340dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toTopOf="@+id/aire_ma"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ascensor_ma" />
+
+
+            <TextView
+                android:id="@+id/aire_ma"
+                android:layout_width="340dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toTopOf="@+id/operacion_ma"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.029"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/banos_ma" />
+
+            <TextView
+                android:id="@+id/operacion_ma"
+                android:layout_width="340dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toTopOf="@+id/tipo_pd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.029"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aire_ma" />
+
+
+            <TextView
+                android:id="@+id/tipo_ma"
+                android:layout_width="340dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toTopOf="@+id/matextView31"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/operacion_ma" />
+
+            <TextView
+                android:id="@+id/matextView31"
+                android:layout_width="361dp"
+                android:layout_height="38dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="CONTACTAR AL DUEÑO"
+                android:textColor="#00ffea"
+                android:textStyle="bold"
+                android:textSize="19dp"
+                app:layout_constraintBottom_toTopOf="@+id/nombre_ma"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.034"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tipo_ma" />
+
+            <TextView
+                android:id="@+id/nombre_ma"
+                android:layout_width="340dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toTopOf="@+id/email_ma"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/matextView31" />
+
+            <TextView
+                android:id="@+id/email_ma"
+                android:layout_width="340dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toTopOf="@+id/cel_pd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nombre_ma" />
+
+            <TextView
+                android:id="@+id/cel_ma"
+                android:layout_width="340dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                app:layout_constraintBottom_toTopOf="@+id/matextView32"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_ma" />
+
+            <TextView
+                android:id="@+id/matextView32"
+                android:layout_width="177dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:text="UBICACION"
+                android:textColor="#00ffea"
+                android:textStyle="bold"
+                android:textSize="19dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.034"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cel_ma" />
+
+            <TextView
+                android:id="@+id/ubicacion_ma"
+                android:layout_width="341dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textColor="#ffffff"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/superficie_ma"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.736"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frase_ma" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -220,7 +220,7 @@ String s_tipo_inmuheble , s_num_hab, s_num_ba, s_num_pla;
                     } else {
                         Toast.makeText(root, "ERROR AL enviar los datos", Toast.LENGTH_LONG).show();
                     }
-                    if
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

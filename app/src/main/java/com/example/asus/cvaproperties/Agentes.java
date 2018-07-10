@@ -61,7 +61,7 @@ public class Agentes extends AppCompatActivity implements AdapterView.OnItemClic
         //  String url ="http://192.168.6.142:5000/api/v1.0/inmueble";
 
 
-        client.get("http://192.168.1.10:5000/api/v1.0/agente",new  JsonHttpResponseHandler(){
+        client.get("http://192.168.1.6:5000/api/v1.0/agente",new  JsonHttpResponseHandler(){
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
