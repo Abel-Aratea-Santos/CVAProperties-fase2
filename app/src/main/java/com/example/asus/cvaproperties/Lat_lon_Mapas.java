@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.asus.cvaproperties.DATA.DataApp;
+import com.example.asus.cvaproperties.DATA.UserData;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -22,54 +24,51 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
-public class LatLon_Mapas extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
+public class Lat_lon_Mapas extends FragmentActivity implements OnMapReadyCallback,GoogleMap.OnMapClickListener {
     private GoogleMap mMap;
     private MarkerOptions marker;
     private Context root;
-    private Marker marcador;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         root = this;
-        //marker = new ArrayList<MarkerOptions>();
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_lat_lon__mapas);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         MapView map = this.findViewById(R.id.mapView);
-        if (map != null) {
+        if(map!=null){
             map.onCreate(null);
             map.onResume();
-            // Set the map ready callback to receive the GoogleMap object
             map.getMapAsync(this);
         }
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
-                if (marker != null) {
+            public void onClick(View v) {
+                Toast.makeText(root,"exitoso",Toast.LENGTH_LONG).show();
+                if(marker!=null){
                     AsyncHttpClient client = new AsyncHttpClient();
-                    RequestParams params= new RequestParams();
+                    RequestParams params = new RequestParams();
                     params.put("lat_a",marker.getPosition().latitude);
                     params.put("lon_a",marker.getPosition().longitude);
-                    client.patch("http://192.168.1.6:5000/api/v1.0/mapa/5b4418486d92f4342708803e",params,new JsonHttpResponseHandler(){
-
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                            // lleva a  camara
-                            Intent camera = new Intent(root, MainActivity.class);
-                            root.startActivity(camera);
-
-                            //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONObject) was not overriden, but callback was received");
-                        }
+                    client.patch(DataApp.REST_HOME_PATCH+"/5b4419db6d92f43427088040",params,new JsonHttpResponseHandler(){
                     });
                 }
+            }
+        });
+        FloatingActionButton fab2 = (FloatingActionButton)findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent salir = new Intent(root, MainActivity.class);
+                root.startActivity(salir);
             }
         });
     }
@@ -78,6 +77,15 @@ public class LatLon_Mapas extends FragmentActivity implements OnMapReadyCallback
     }
 
 
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -85,7 +93,7 @@ public class LatLon_Mapas extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
         LatLng potosi = new LatLng(-19.578297, -65.758633);
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(potosi, 14));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(potosi,14));
         mMap.setOnMapClickListener(this);
     }
 
@@ -98,6 +106,6 @@ public class LatLon_Mapas extends FragmentActivity implements OnMapReadyCallback
         marker.title("Homes");
         marker.draggable(true);
         mMap.addMarker(marker);
-    }
 
+    }
 }
