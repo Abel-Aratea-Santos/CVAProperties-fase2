@@ -54,11 +54,13 @@ public class CustomAdapterA extends BaseAdapter {
         TextView email_a = (TextView)convertView.findViewById(R.id.email_agente);
         TextView tel_a = (TextView)convertView.findViewById(R.id.tel_agente);
         TextView exp_a = (TextView)convertView.findViewById(R.id.exp_agente);
+        TextView des_a = (TextView)convertView.findViewById(R.id.des_agent);
 
         nombre_a.setText(this.LIST.get(position).getNombre_agente());
         email_a.setText(this.LIST.get(position).getEmail_agente());
         tel_a.setText(this.LIST.get(position).getTel_agente());
         exp_a.setText(this.LIST.get(position).getExp_agente());
+        des_a.setText(this.LIST.get(position).getDes_agent());
 
         ImageView img = (ImageView)convertView.findViewById(R.id.img_agente);
 /*

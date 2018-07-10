@@ -113,6 +113,9 @@
             android:name=".Mapa_Properties_Details"
             android:label="@string/title_activity_mapa__properties__details"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".LatLon_Mapas"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

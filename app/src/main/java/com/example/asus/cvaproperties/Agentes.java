@@ -113,8 +113,8 @@ public class Agentes extends AppCompatActivity implements AdapterView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String id_a = this.LISTINFO.get(position).getIdimdb();
-        Intent inmu_detalles = new Intent(this,Details_agentes.class);
+        String id_a = this.LISTINFO.get(position).getId_age();
+        Intent inmu_detalles = new Intent(this,Details_Agente.class);
         inmu_detalles.putExtra("id", id_a);
         this.startActivity(inmu_detalles);
     }

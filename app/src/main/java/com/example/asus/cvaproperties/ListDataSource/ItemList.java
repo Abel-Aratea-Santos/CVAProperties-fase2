@@ -8,6 +8,7 @@ public class ItemList {
     private String tel_agente;
     private String exp_agente;
     private String des_agent;
+
     private String img_casa_i;
     private String precio_i;
     private String nombre_casa_i;
@@ -51,6 +52,14 @@ public class ItemList {
 
     public ItemList(String id_age, String nombre_agente, String email_agente, String tel_agente, String exp_agente, String des_agent){
         this.id_age = id_age;
+        this.nombre_agente = nombre_agente;
+        this.email_agente = email_agente;
+        this.tel_agente = tel_agente;
+        this.exp_agente = exp_agente;
+        this.des_agent = des_agent;
+    }
+
+    public ItemList(String nombre_agente, String email_agente, String tel_agente, String exp_agente, String des_agent){
         this.nombre_agente = nombre_agente;
         this.email_agente = email_agente;
         this.tel_agente = tel_agente;
