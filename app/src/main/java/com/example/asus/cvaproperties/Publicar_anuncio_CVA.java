@@ -224,7 +224,7 @@ String s_tipo_inmuheble , s_num_hab, s_num_ba, s_num_pla;
                     //-----------------------------
 
                     if(msn != null){
-                        Intent coor = new Intent(root,LatLon_Maps.class);
+                        Intent coor = new Intent(root,Lat_lon_Mapas.class);
                         root.startActivity(coor);
                     }else{
                         Toast.makeText(root,"Error al Ubicar casa",Toast.LENGTH_LONG).show();

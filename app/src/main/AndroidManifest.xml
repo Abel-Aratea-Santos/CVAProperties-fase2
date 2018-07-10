@@ -113,7 +113,7 @@
             android:label="@string/title_activity_mapa"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LatLon_Mapas"
+            android:name=".Lat_lon_Mapas"
             android:label="@string/title_activity_lat_lon__mapas"></activity>
     </application>
 
