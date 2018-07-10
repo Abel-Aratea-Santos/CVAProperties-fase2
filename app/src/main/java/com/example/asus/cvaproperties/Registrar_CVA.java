@@ -88,9 +88,9 @@ public class Registrar_CVA extends AppCompatActivity implements View.OnClickList
             if(result.isSuccess()){
                 Intent login_r = new Intent(this, Login_Detalle.class);
                 Uri photo = result.getSignInAccount().getPhotoUrl();
-                String url_foto = "https://lh3.googleusercontent.com" + photo.getPath();
+//                String url_foto = "https://lh3.googleusercontent.com" + photo.getPath();
 
-                login_r.putExtra("avatar",url_foto);
+  //              login_r.putExtra("avatar",url_foto);
                 login_r.putExtra("nombre", result.getSignInAccount().getDisplayName());
                 login_r.putExtra("email", result.getSignInAccount().getEmail());
                 startActivity(login_r);
