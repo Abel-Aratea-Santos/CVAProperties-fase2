@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Registrar_CVA"
-    android:background="@drawable/fondo_login_opt"
+    android:background="@drawable/negro"
     tools:showIn="@layout/activity_registrar__cv"
     android:orientation="vertical">
 
@@ -39,6 +39,8 @@
                 android:drawablePadding="12dp"
                 android:padding="8dp"
                 android:hint="Username"
+                android:textColor="#ffff"
+                android:textStyle="italic"
                 android:textColorHint="#E3F2F3"
                 android:maxLines="1"
                 android:layout_marginTop="70dp"/>
@@ -55,6 +57,8 @@
                 android:drawablePadding="12dp"
                 android:padding="8dp"
                 android:hint="password"
+                android:textColor="#ffff"
+                android:textStyle="italic"
                 android:textColorHint="#E3F2F3"
                 android:maxLines="1"
                 android:background="@android:color/transparent"
@@ -69,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textColor="#263238"
+                android:textColor="#ffff"
                 android:text="Remenber me"
                 android:padding="8dp"/>
 
