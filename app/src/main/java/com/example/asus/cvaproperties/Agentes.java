@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.asus.cvaproperties.DATA.DataApp;
 import com.example.asus.cvaproperties.ListDataSource.CustomAdapter;
 import com.example.asus.cvaproperties.ListDataSource.CustomAdapterA;
 import com.example.asus.cvaproperties.ListDataSource.ItemList;
@@ -82,8 +83,13 @@ public class Agentes extends AppCompatActivity implements AdapterView.OnItemClic
                         String tel_ag = itemJsom.getString("tel_agente");
                         String años_ag = itemJsom.getString("años_agente");
                         String des_ag = itemJsom.getString("descripcion_agente");
+                        JSONArray listGalery1 = itemJsom.getJSONArray("galery");
+                        ArrayList<String> urlList = new ArrayList<String>();
+                        for (int j=0; j < listGalery1.length(); j++){
+                            urlList.add(DataApp.HOST + listGalery1.getString(j));
+                        }
 
-                    ItemList item = new ItemList(idage,nom_age,email_age,tel_ag,años_ag,des_ag);
+                    ItemList item = new ItemList(idage,nom_age,email_age,tel_ag,años_ag,des_ag,urlList.get(0));
                     LISTINFO.add(item);
 
                 }

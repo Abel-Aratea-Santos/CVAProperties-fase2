@@ -1,11 +1,18 @@
 package com.example.asus.cvaproperties;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,9 +35,9 @@ import cz.msebera.android.httpclient.Header;
 
 public class Details_Agente extends AppCompatActivity implements OnLoadImage{
 
-    public  String idImdb;
+    public  String id_ag;
     protected TextView nombre_age,email_age,tel_age,anos_age,des_age;
-    protected ImageView img_age;
+    //protected ImageView img_age;
     protected agent_details DATA;
     protected Details_Agente root;
 
@@ -46,22 +53,37 @@ public class Details_Agente extends AppCompatActivity implements OnLoadImage{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        idImdb = this.getIntent().getExtras().getString("id");
+        id_ag = this.getIntent().getExtras().getString("id");
+
+        loadComponents();
         loadAsyncData();
+
+        int permissionCheck = ContextCompat.checkSelfPermission(
+                this, Manifest.permission.CALL_PHONE);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            Log.i("Mensaje", "No se tiene permiso para realizar llamadas telefónicas.");
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 225);
+        }
+        else {
+            Log.i("Mensaje", "Se tiene permiso!");
+        }
+
+
+
     }
 
         private void loadAsyncData() {
             AsyncHttpClient client = new AsyncHttpClient();
-            client.get("http://192.168.1.6:5000/api/v1.0/agente/"+this.idImdb,new JsonHttpResponseHandler(){
+            client.get("http://192.168.1.6:5000/api/v1.0/agente/"+this.id_ag,new JsonHttpResponseHandler(){
                 // System.out.println("entro a la api");
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-
+            System.out.println("response        "+response);
                     try {
-                        String nombre_ag = response.getString("nombre_a");
-                        String email_ag = response.getString("email_a");
-                        String telefono_ag = response.getString("telefono_a");
-                        String anos_ag = response.getString("operacion_a");
-                        String des_ag = response.getString("tipo_inmueble_a");
+                        String nombre_ag = response.getString("nombre_agente");
+                        String email_ag = response.getString("email_agente");
+                        String telefono_ag = response.getString("tel_agente");
+                        String anos_ag = response.getString("años_agente");
+                        String des_ag = response.getString("descripcion_agente");
 
 
                        /* JSONArray listGalery = response.getJSONArray("galery");
@@ -108,6 +130,16 @@ public class Details_Agente extends AppCompatActivity implements OnLoadImage{
             public void setLoadImage(ImageView container, Bitmap img) {
                 //container.setImageBitmap(img);
             }
+
+
+
+
+    public void onClickLlamada(View v) {
+
+        Intent i = new Intent(android.content.Intent.ACTION_CALL,
+                Uri.parse("tel:"+tel_age.getText().toString()));
+        startActivity(i);
+    }
 
 
     }

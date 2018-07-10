@@ -63,9 +63,9 @@ public class CustomAdapterA extends BaseAdapter {
         des_a.setText(this.LIST.get(position).getDes_agent());
 
         ImageView img = (ImageView)convertView.findViewById(R.id.img_agente);
-/*
+
         try {
-            URL url = new URL(this.LIST.get(position).getImg_casa_i());
+            URL url = new URL(this.LIST.get(position).getImg_agent());
             InputStream stream =url.openConnection().getInputStream();
             Bitmap imageBitmap = BitmapFactory.decodeStream(stream);
             img.setImageBitmap(imageBitmap);
@@ -76,7 +76,7 @@ public class CustomAdapterA extends BaseAdapter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-*/
+
         return convertView;
     }
 
