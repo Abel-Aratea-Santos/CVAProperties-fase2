@@ -144,7 +144,7 @@ public class Camera_Form extends AppCompatActivity implements View.OnClickListen
 
                                 String path = response.getString("path");
                                 if (path != null) {
-                                    Intent profile = new Intent(root, Lat_lon_Mapas.class);
+                                    Intent profile = new Intent(root, LatLonMaps.class);
                                     root.startActivity(profile);
                                 }
                             }catch(JSONException json){

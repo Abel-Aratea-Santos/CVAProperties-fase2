@@ -112,8 +112,10 @@
         <activity
             android:name=".Mapa_Properties_Details"
             android:label="@string/title_activity_mapa__properties__details"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LatLonMaps"
+            android:label="@string/title_activity_lat_lon_maps"></activity>
     </application>
 
 </manifest>
