@@ -1,6 +1,7 @@
 package com.example.asus.cvaproperties;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -50,18 +52,23 @@ public class Lat_lon_Mapas extends FragmentActivity implements OnMapReadyCallbac
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(root,"exitoso",Toast.LENGTH_LONG).show();
                 if(marker!=null){
                     AsyncHttpClient client = new AsyncHttpClient();
                     RequestParams params = new RequestParams();
                     params.put("lat_a",marker.getPosition().latitude);
                     params.put("lon_a",marker.getPosition().longitude);
-                    client.patch(DataApp.REST_HOME_PATCH+"/"+ UserData.ID,params,new JsonHttpResponseHandler(){
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                            super.onSuccess(statusCode, headers, response);
-                        }
+                    client.patch(DataApp.REST_HOME_PATCH+"/5b4419db6d92f43427088040",params,new JsonHttpResponseHandler(){
                     });
                 }
+            }
+        });
+        FloatingActionButton fab2 = (FloatingActionButton)findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent salir = new Intent(root, MainActivity.class);
+                root.startActivity(salir);
             }
         });
     }
