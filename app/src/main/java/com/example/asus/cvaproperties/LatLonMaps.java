@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.asus.cvaproperties.DATA.DataApp;
+import com.example.asus.cvaproperties.DATA.UserData;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -53,7 +54,7 @@ public class LatLonMaps extends FragmentActivity implements OnMapReadyCallback, 
                     RequestParams params = new RequestParams();
                     params.put("lat_a",marker.getPosition().latitude);
                     params.put("lon_a",marker.getPosition().longitude);
-                    client.patch(DataApp.REST_HOME_PATCH+"/5b4415566d92f4342708803c",params,new JsonHttpResponseHandler());
+                    client.patch(DataApp.REST_HOME_PATCH+"/"+ UserData.ID,params,new JsonHttpResponseHandler());
                     Toast.makeText(root,"Exitoso",Toast.LENGTH_LONG).show();
                 }
 

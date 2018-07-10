@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity
                 return true;
 
             case R.id.Agentes:
-                i = new Intent(MainActivity.this, LatLonMaps.class);
+                i = new Intent(MainActivity.this, Agentes.class);
                 startActivity(i);
                 //finish();
                 return true;

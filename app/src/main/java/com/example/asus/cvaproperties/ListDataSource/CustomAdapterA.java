@@ -62,13 +62,13 @@ public class CustomAdapterA extends BaseAdapter {
         exp_a.setText(this.LIST.get(position).getExp_agente());
         des_a.setText(this.LIST.get(position).getDes_agent());
 
-        ImageView img = (ImageView)convertView.findViewById(R.id.img_agente);
+        ImageView img1 = (ImageView)convertView.findViewById(R.id.img_agente);
 
         try {
             URL url = new URL(this.LIST.get(position).getImg_agent());
             InputStream stream =url.openConnection().getInputStream();
             Bitmap imageBitmap = BitmapFactory.decodeStream(stream);
-            img.setImageBitmap(imageBitmap);
+            img1.setImageBitmap(imageBitmap);
 
         }
         catch (MalformedURLException e) {
